@@ -1,0 +1,982 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body bgcolor=black lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>Rule Overview</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Most of your swaps in
+ashitacast will be governed by rules.&nbsp; These are constructed by
+referencing built in variables, or your own user-configured variables.&nbsp;
+There are two kinds of rules you can use, basic or advanced.&nbsp; Basic rules
+are intended for simplistic uses where you will only be comparing 1-2
+variables.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>Basic Rules</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>A basic rule has 2 parts:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>ad_name=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Thunder V</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>The first part is the </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>attribute name</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, which does not use a $
+prefix like most other instances of variables.&nbsp; The attribute value will
+always be a single variable(or user variable, if prefixed with u_).</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>The second part is the </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>attribute value</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, where you specify a
+comparand.&nbsp; The </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>attribute value </span><span style='font-size:14.0pt;line-height:
+105%;color:white'>can contain strings, numeric values, or variables(if prefixed
+with $).&nbsp; You may use several terms seperated by </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>| </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>or </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&amp; </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>to require only one
+option to atch, or all options to match.&nbsp; You may not use both </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>| </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&amp; </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>in the same basic rule’s </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>attribute value</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>.&nbsp; You may start
+each term with a </span><span style='font-size:14.0pt;line-height:105%;
+color:#4472C4'>&lt;= &gt;= &lt; &gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:white'>or </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>!</span><span style='font-size:14.0pt;
+line-height:105%;color:white'>(not equal) symbol to evaluate it as such.&nbsp;
+If none are specified, the term will be evaluated as </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>=</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>.&nbsp; You may use
+wildcards(</span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>*</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>) in basic rules.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Some examples:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>ad_name=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Thunder IV|Thunder
+V|Thunder VI</span><span style='font-size:14.0pt;line-height:105%;color:#C00000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>This will evaluate to
+true if the value of </span><span style='font-size:14.0pt;line-height:105%;
+color:#C00000'>ad_name </span><span style='font-size:14.0pt;line-height:105%;
+color:white'>(the spell you’re currently casting) is </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Thunder IV</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Thunder V</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, or </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Thunder VI</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> since the rule is split
+by </span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>| </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>symbols.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>ad_name=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>!Thunder VI</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>This will evaluate to
+true if the value of </span><span style='font-size:14.0pt;line-height:105%;
+color:#C00000'>ad_name </span><span style='font-size:14.0pt;line-height:105%;
+color:white'>is NOT </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>Thunder VI</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>, since it begins with !.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>ad_name=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Thunder*&amp;!Thunder
+VI</span><span style='font-size:14.0pt;line-height:105%;color:#C00000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>This will be split into 2
+parts, and evaluated as such:&nbsp; ($ad_name=Thunder*) AND ($ad_name!Thunder
+VI).&nbsp; It will evaluate to true if the value of </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>ad_name </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>starts with </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Thunder</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, but is not </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Thunder VI</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>.&nbsp; Note that this is
+pushing the limits of basic rules; while it will function perfectly fine, the
+chained symbols are often hard to read and you may want to make something like
+this an advanced rule.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>ad_mpcost=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>$p_mp</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>In this example, we
+introduce a second variable and the </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>&gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:white'>operator.&nbsp; So, we resolve it to: ($ad_mpcost
+&gt; $p_mp).&nbsp; If the spell costs more MP than we have, the rule is
+met(likely to allow us to cancel it or downgrade it!).</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>ad_name=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Convert</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>” p_hp=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;500</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>We can use multiple rules
+in the same node, and all will have to be met for the node to be true.&nbsp;
+So, this rule is met if we’re using convert with below 500 HP.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>ad_name=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Convert</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.5in'><span style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>mode=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>OR</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>” p_hp=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;500</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> “ p_mp=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&gt;500</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.5in'><span style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Nested rules are also
+fine, as they fall into standard </span><span style='font-size:14.0pt;
+line-height:105%;color:#ED7D31'>flow</span><span style='font-size:14.0pt;
+line-height:105%;color:white'>, as described in XML structure.&nbsp; In this
+example, I used the special node </span><span style='font-size:14.0pt;
+line-height:105%;color:#C00000'>mode=”</span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>OR</span><span style='font-size:14.0pt;
+line-height:105%;color:#C00000'>” </span><span style='font-size:14.0pt;
+line-height:105%;color:white'>which will require only one of the rules in the
+node to be met for the node to evaluate as true.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>Advanced Rules</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Advanced rules are used
+for more complicated comparisons, and can be used in the same way as basic
+rules.&nbsp; They will always have an </span><span style='font-size:14.0pt;
+line-height:105%;color:#C00000'>attribute name </span><span style='font-size:
+14.0pt;line-height:105%;color:white'>of </span><span style='font-size:14.0pt;
+line-height:105%;color:#C00000'>advanced</span><span style='font-size:14.0pt;
+line-height:105%;color:white'>.&nbsp; The entire comparison will be placed as
+the </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>Attribute
+Value</span><span style='font-size:14.0pt;line-height:105%;color:white'>, and
+they support additional operands.&nbsp; Advanced rules can use math and logical
+operators freely, and should use parentheses to avoid ambiguity.&nbsp; In an
+advanced rule, the following operators are evaluated in the following order:<br>
+</span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>() </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- Parentheses ensure
+execution will occur in innermost parentheses first.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>^ </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- Exponents.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>*/ </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- multiplication and
+division&nbsp; </span><b><span style='font-size:14.0pt;line-height:105%;
+color:#ED7D31'>Note that you cannot use wildcards in advanced rules as they
+will be interpreted as multiplication.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>+- </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- addition and
+subtraction</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&lt; &gt; &lt;= &gt;= !
+= </span><span style='font-size:14.0pt;line-height:105%;color:white'>- logical
+operators, these will convert both sides to a ‘true’ or ‘false’ value</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>| &amp; </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- logical operators,
+these will convert both sides to a ‘true’ or ‘false’ value</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>For an advanced rule to
+evaluate as true, it must be fully evaluated to a ‘true’ value.&nbsp; For some
+examples:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>advanced=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>($p_mp + $p_hp)&gt;1500</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>First, $p_mp and $p_hp
+will be added together as they are inside parentheses.&nbsp; Then, the value
+will be checked against 1500.&nbsp; If the value is higher than 1500, it will
+be reduced to the statement ‘true’ and the advanced statement will be met.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>advanced=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>$p_mp+$p_hp&gt;1500|$p_hp&gt;1000</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Following the order of
+operations and going left to right, this will be reduced, let’s say you have
+1200 HP and 200 MP:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>$p_mp+$p_hp&gt;1500|$p_hp&gt;1000</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>200+1200&gt;1500|1200&gt;1000</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>1400&gt;1500|1200&gt;1000</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>False|1200&gt;1000</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>False|True</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>True</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>It is still recommended
+that you use parentheses for ease of reading; that rule is an extreme
+eyesore!&nbsp; Advanced rules use additional string parsing, and should be
+avoided unless necessary to accomplish your goal.&nbsp; While you can write any
+basic rule as an advanced rule, it is rarely a good idea to do so.&nbsp; This
+rule would be better expressed as:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>mode=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>OR</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>” p_hp=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&gt;1000</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>” advanced=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>($p_mp+$p_hp)&gt;1500</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>Built-In Variables</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>a_actiontarget </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns ‘true’ if your
+action target is in your alliance, ‘false’ otherwise</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>a_count </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns the number of
+players currently in your alliance</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>a_inally </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns ‘true’ if you
+are currently in an alliance, ‘false’ otherwise</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>a_target </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns ‘true’ if your
+current target is in your alliance, ‘false’ otherwise</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>ad_casttime </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- can only be used in </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast, midcast,
+petspell </span><span style='font-size:14.0pt;line-height:105%;color:white'>sections,
+returns the casttime of the spell in milliseconds</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>ad_element </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- can only be used in </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast, midcast,
+petspell </span><span style='font-size:14.0pt;line-height:105%;color:white'>sections,
+returns the element of the spell</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:14.0pt;color:#ED7D31'>Possible
+Values: </span><span style='font-size:14.0pt;color:#C00000'>&quot;fire&quot;
+&quot;ice&quot; &quot;wind&quot; &quot;earth&quot; &quot;thunder&quot;
+&quot;water&quot; &quot;light&quot; &quot;dark&quot; &quot;nonelemental”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>ad_id</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - can only be used in </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast, midcast,
+petspell, ability, weaponskill, item, petskill </span><span style='font-size:
+14.0pt;line-height:105%;color:white'>sections, returns the id of the
+currentaction</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>ad_mpaftercast</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - can only be used in </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast, midcast </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>sections, returns the
+amount of MP you will have left after the spell(does not account for ‘arts’ or
+conserve mp procs)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>ad_mpcost</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - can only be used in </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast, midcast,
+petspell </span><span style='font-size:14.0pt;line-height:105%;color:white'>sections,
+returns the MP cost of the spell</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>ad_mppaftercast </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- can only be used in </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast, midcast </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>sections, returns the
+percent of MP you will have left after the spell(does not account for ‘arts’ or
+conserve mp procs)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>ad_name</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - can only be used in </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast, midcast,
+petspell, ability, weaponskill, item, petskill </span><span style='font-size:
+14.0pt;line-height:105%;color:white'>sections, returns the name of the current
+action</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>ad_recast</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - can only be used in </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast, midcast,
+petspell </span><span style='font-size:14.0pt;line-height:105%;color:white'>sections,
+returns the base recast time of the current spell in milliseconds</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>ad_skill </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- can only be used in </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast, midcast, petspell
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>sections,
+returns the skill of the current spell</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&quot;divinemagic&quot;
+&quot;healingmagic&quot; &quot;enhancingmagic&quot; &quot;enfeeblingmagic&quot;
+&quot;elementalmagic&quot; &quot;darkmagic&quot; &quot;summoning&quot;
+&quot;ninjutsu&quot; &quot;singing&quot; &quot;bluemagic&quot; &quot;geomancy”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>ad_type(precast,midcast,petspell)</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns the school of
+magic the current spell is using</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&quot;whitemagic&quot;
+&quot;blackmagic&quot; &quot;summoning&quot; &quot;ninjutsu&quot;
+&quot;bardsong&quot; &quot;bluemagic&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>ad_type(ability,
+petskill) </span><span style='font-size:14.0pt;line-height:105%;color:white'>-
+returns the category of the ability</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“runeenchantment”
+“ready” “bloodpactrage” “bloodpactward” “corsairroll” “quickdraw” “waltz”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>at_distance </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns the distance(in
+yalms) to the target of the current action</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>at_hpp</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns the target of
+the current action’s current HP percent</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>at_id </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns the target of
+the current action’s id</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>at_index </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns the target of
+the current action’s index</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>at_name</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns the target of
+the current action’s name</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>at_status </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns the target of
+the current action’s status</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“idle” “engaged” “dead”
+“zoning” “resting”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>at_type</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns the target of
+the current action’s entity type</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“self” “pc” “npc”
+“alliance” “party”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>e_area</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns the name of
+the zone you are currently in</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>e_day </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns the current day
+of the week(ingame)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“firesday” “earthsday”
+“watersday” “windsday” “iceday” “lightningday” “lightsday” “darksday”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>e_dayelement </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns the current day
+of the week(ingame)’s element</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“fire” “earth” “water”
+“wind” “ice” “thunder” “light” “dark”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>e_moon</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns the current
+moon phase(ingame)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“fullmoon”
+“waninggibbous” “lastquarter” “waningcrescent” “newmoon” “waxingcrescent”
+“firstquarter” “waxinggibbous”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>e_moonpct </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns the current
+moon percentage(ingame)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>e_time </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns the current
+ingame time, using a decimal point instead of a : for easy numeric
+comparisons(12:30 = 12.30)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>e_weather</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns the current
+ingame weather, will reflect storm spells if active</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“clear” “sunshine”
+“clouds” “fog” “fire” “firex2” “water” “waterx2” “earth” “earthx2” “wind”
+“windx2” “ice” “icex2” “thunder” “thunderx2” “light” “lightx2” “dark” “darkx2”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>e_weatherelement </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns the element of
+the current ingame weather, will reflect storm spells if active</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“fire” “earth” “water”
+“wind” “ice” “thunder” “light” “dark”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_ammo</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped ammo, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_back </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns your currently
+equipped back, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_body </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns your currently
+equipped body, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_ear1</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped ear1, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_ear2</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped ear2, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_feet</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped feet, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_hands</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped hands, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_head</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped head, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_legs</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped legs, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_main</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped main weapon, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_neck</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped neck piece, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_range</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped ranged weapon, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_ring1</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped ring1, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_ring2</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped ring2, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_sub</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped sub weapon, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>eq_waist</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your currently
+equipped waist, or “empty”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>pet_active</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns ‘true’ if you
+currently have a pet, ‘false’ otherwise</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>pet_hpp</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your pet’s
+current hp percent, or ‘PET_DOESNT_EXIST’</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>pet_tp </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns your pet’s
+current tp, or ‘PET_DOESNT_EXIST’</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>pet_status </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns your pet’s
+current status, or ‘PET_DOESNT_EXIST’</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“idle” “engaged” “dead”
+“zoning” “resting”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>pet_name </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns your pet’s
+name, or ‘PET_DOESNT_EXIST’</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>pet_distance </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns your pet’s
+distance in yalms, or ‘PET_DOESNT_EXIST’</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_attack</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+attack, as reported by equip screen</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_darkresist </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns your current
+dark resistance, as reported by equip screen</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_defense</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+defense, as reported by equip screen</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_earthresist</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+earth resistance, as reported by equip screen</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_fireresist</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+fire resistance, as reported by equip screen</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_hp</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+hp</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_hpmax</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+max hp</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_hpp</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+hp percent</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_iceresist </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns your current
+ice resistance, as reported by equip screen</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_ismoving</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns ‘true’ if you
+are currently moving, ‘false’ otherwise</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_job</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your job in
+the format WAR/MNK</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_level</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+main job level</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_lightningresist</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+lightning resistance, as reported by equip screen</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_lightresist</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+light resistance, as reported by equip screen</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_mainjob </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns your current
+main job in the format WAR</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_mp</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+MP</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_mpmax</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+maximum mp</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_mpp</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+mp percentage</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_name</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your name</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_status </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns your current
+status</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“idle” “engaged” “dead”
+“zoning” “resting”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_subjob</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+subjob in the format MNK</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_subjoblevel</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+sub job level</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_tp</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+TP</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_waterresist</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+water resistance, as reported by equip screen</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>p_windresist</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+wind resistance, as reported by equip screen</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>pt_actiontarget</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns ‘true’ if your
+current action is targeting a party member, ‘false’ otherwise</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>pt_count</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns the amount of
+members in your party</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>pt_inparty</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns true if you
+are currently in a party</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>pt_target</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns ‘true’ if your
+current target is a party member, ‘false’ otherwise</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>t_distance</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns the distance
+to your current target, in yalms</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>t_hpp</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+target’s hp percentage</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>t_id</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+target’s id</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>t_index</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+target’s index</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>t_name</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+target’s name</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>t_status </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>- returns your target’s
+current status</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“idle” “engaged” “dead”
+“zoning” “resting”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>t_type</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> - returns your current
+target’s entity type</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Possible Values: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>“self” “pc” “npc”
+“alliance” “party”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>Checking Active Buffs</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Buffs are checked by
+using the special variable </span><span style='font-size:14.0pt;line-height:
+105%;color:#70AD47'>b_buffid </span><span style='font-size:14.0pt;line-height:
+105%;color:white'>or </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>b_buffname</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>.  These will return the amount of the listed buff you have
+active.  For example:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>b_haste=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&gt;=1</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt; </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>will be true if you have
+at least 1 copy of the haste buff active.  Note that since it’s using the word
+haste, it will also count indi-haste or any other buff that displays ‘Haste’
+when highlighted.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>b_33=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&gt;=1</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>&gt; </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>will also be true if you
+have at least 1 copy of the haste buff active, but will not count indi-haste,
+since it is a different buff ID.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>You can use these in any
+way you could use any other variable, as part of a basic or advanced rule.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>Arguments</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>When writing rules inside
+a </span><span style='font-size:14.0pt;line-height:105%;color:#ED7D31'>command(input)
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>tag located
+in the </span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>commands
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>section, you
+also have access to the variables </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>Args Arg1 Arg2 … Arg50</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>.  These variables reference
+the data sent in the command that triggered the event.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Args </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>will be everything after
+the command itself.  Leading spaces are removed.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>Arg1 </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is the first argument
+after the command, </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>Arg2 </span><span style='font-size:14.0pt;line-height:105%;
+color:white'>is the second argument, and so on.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Arguments are seperated by
+spaces, unless quotes are used to make a multiple word argument.</span></p>
+
+</div>
+
+</body>
+
+</html>

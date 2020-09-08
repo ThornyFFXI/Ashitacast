@@ -1,0 +1,286 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body bgcolor=black lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>Commands</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>All
+commands can be prefixed with </span><span style='font-size:16.0pt;line-height:
+105%;color:#4472C4'>/ashitacast </span><span style='font-size:16.0pt;
+line-height:105%;color:white'>or </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>/ac</span><span style='font-size:16.0pt;
+line-height:105%;color:white'>.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Any
+parameter that includes a space must be enclosed in quotation marks(</span><b><span
+style='font-size:16.0pt;line-height:105%;color:red'>&quot;</span></b><span
+style='font-size:16.0pt;line-height:105%;color:white'>) unless part of </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac eval</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac import [required: filename]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Attempt
+to convert an Acv3 XML to Acv4.&nbsp; Filename must be in the format </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>Charname_JOB</span><span
+style='font-size:16.0pt;line-height:105%;color:#70AD47'>_v3</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>.xml</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>.&nbsp; Converted XML
+will be created as </span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>Charname_JOB.xml</span><span style='font-size:16.0pt;line-height:
+105%;color:white'>. &nbsp;For more details, see quickstart.html in the
+ashita/docs/ashitacast folder.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac load [</span></b><b><span style='font-size:24.0pt;
+line-height:105%;color:#FFC000'>optional: filename</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Attempt
+to load an XML.&nbsp; Ashitacast will first check for an absolute path, then
+check ashita/config/ashitacast.&nbsp; If you do not specify filename,
+ashitacast will use your current CharacterName_JOB.xml.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac reload</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Reload
+the currently loaded XML from hard drive, to reflect any changes made.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac unload</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Unload
+the currently loaded XML, resulting in no XML loaded.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac naked</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Remove
+all equipment and disable all slots.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac set [</span></b><b><span style='font-size:24.0pt;line-height:
+105%;color:#70AD47'>required: set name</span></b><b><span style='font-size:
+24.0pt;line-height:105%;color:#ED7D31'>] [</span></b><b><span style='font-size:
+24.0pt;line-height:105%;color:#FFC000'>optional: duration</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Equip
+a set from your current XML manually.&nbsp; It will be locked in for the
+specified duration, in milliseconds.&nbsp; If duration is not specified, it
+will be locked in for 5000ms(5 seconds).</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac disable [</span></b><b><span style='font-size:24.0pt;
+line-height:105%;color:#FFC000'>optional: slot</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Temporarily
+disable a slot from being swapped by ashitacast.&nbsp; If no slot is specified,
+all slots will be disabled.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac enable [</span></b><b><span style='font-size:24.0pt;
+line-height:105%;color:#FFC000'>optional: slot</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Enable
+a slot that has been disabled so that it will be swapped again.&nbsp; If no
+slot is specified, all slots will be enabled.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac print [</span></b><b><span style='font-size:24.0pt;
+line-height:105%;color:#70AD47'>required: vars|uvars</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>If
+vars is specified, print a list of all currently accessible integrated
+variables and their values.&nbsp; If uvars is specified, print a list of all
+userdefined variables and their current values.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac addset [</span></b><b><span style='font-size:24.0pt;
+line-height:105%;color:#70AD47'>required: set name</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Add
+your currently equipped armor to your XML as a set.&nbsp; If a set with the
+listed name already exists, it will be replaced.&nbsp; Your XML will be
+reloaded afterwards, so the set will take effect immediately.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac newxml [</span></b><b><span style='font-size:24.0pt;
+line-height:105%;color:#FFC000'>optional: filename</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Create
+a new empty XML in ashita/config/ashitacast/.&nbsp; If filename is not
+specified, ashitacast will use your current CharacterName_JOB.xml.&nbsp; Will
+fail if the file already exists.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac setvar [</span></b><b><span style='font-size:24.0pt;
+line-height:105%;color:#70AD47'>required: name</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>] [</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#70AD47'>required: value</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Set
+a variable.&nbsp; You may use math and reference other variables in value, by the
+same rules as advanced tags.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac clearvar [</span></b><b><span style='font-size:24.0pt;
+line-height:105%;color:#70AD47'>required: name</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Clear
+a variable.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac clearvars</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Clear
+all variables.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac debug [</span></b><b><span style='font-size:24.0pt;
+line-height:105%;color:#FFC000'>optional: on/off</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Set
+debug mode.&nbsp; When debug mode is enabled, all swaps will be printed to the
+chat log.&nbsp; If on or off is not specified, mode will toggle.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac validate</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Use
+the plugin Packer to confirm all equipment in your sets section is currently in
+your equipfriendly bags.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac gear</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Use
+the plugin Packer to collect all equipment in your sets section according to
+your configured settings in Packer.  Note that all slots will be disabled while
+Packer executes, and if you have ‘nakedforpacker’ enabled they will also be emptied. 
+In both cases, slots will be enabled as soon as Packer completes.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac help [</span></b><b><span style='font-size:24.0pt;
+line-height:105%;color:#FFC000'>optional: command</span></b><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Request
+a command's parameters from ingame.&nbsp; This will match the text here.&nbsp;
+If no command is specified, a list of commands will be printed.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>/ac eval [</span></b><b><span style='font-size:24.0pt;
+line-height:105%;color:#70AD47'>Content</span></b><b><span style='font-size:
+24.0pt;line-height:105%;color:#ED7D31'>]</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>This
+tag is unique in that it does not use arguments, so you do not need to include
+any quotes when creating your content.&nbsp; This will parse all variables in
+your content then send the resulting command through.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>For
+example, if you were on the character </span><span style='font-size:16.0pt;
+line-height:105%;color:#C00000'>Thorny</span><span style='font-size:16.0pt;
+line-height:105%;color:white'> and typed out: </span><span style='font-size:
+16.0pt;line-height:105%;color:#4472C4'>/ac eval </span><span style='font-size:
+16.0pt;line-height:105%;color:#7030A0'>/p Hi, my name is </span><span
+style='font-size:16.0pt;line-height:105%;color:#C00000'>$p_name</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>!</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Ashitacast
+would send the command: </span><span style='font-size:16.0pt;line-height:105%;
+color:#7030A0'>/p Hi, my name is </span><span style='font-size:16.0pt;
+line-height:105%;color:#C00000'>Thorny</span><span style='font-size:16.0pt;
+line-height:105%;color:#7030A0'>!</span></p>
+
+</div>
+
+</body>
+
+</html>

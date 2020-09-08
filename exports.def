@@ -1,0 +1,4 @@
+LIBRARY "ashitacast"
+EXPORTS
+	expCreatePlugin
+	expGetInterfaceVersion

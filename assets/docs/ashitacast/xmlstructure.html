@@ -1,0 +1,1666 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body bgcolor=black lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>XML Layout</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&lt;ashitacast&gt; </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- All files must
+start with an ashitacast node.&nbsp; It is the </span><span style='font-size:
+14.0pt;line-height:105%;color:#ED7D31'>root </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>node. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!--All </span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>top-level
+nodes </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>are
+strictly optional.&nbsp; If you don’t need to use one, you may omit it entirely
+from your XML to conserve space. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;settings&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Settings is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node </span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>that lets you configure ashitacast’s
+behavior.--&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- All setting nodes are optional.&nbsp; If they are not specified, or an
+invalid value is used, the default value(listed in white here) will be used.
+--&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:yellow'>&lt;equipbags&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>0,8,10,11,12</span><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&lt;/equipbags&gt; </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- List of
+container indices you can equip items from.&nbsp; Should only be changed when
+on a private server that allows players to equip from non-standard containers.
+--&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&lt;enablewardrobecheck&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>true</span><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&lt;/enablewardrobecheck&gt;
+</span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!--If
+enabled, client will check if wardrobe3/4 are paid before trying to use
+them.&nbsp; Should only be false when on a private server that does not
+properly set values. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;orderbyindex&gt;</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>false</span><span style='font-size:14.0pt;line-height:105%;
+color:yellow'>&lt;/orderbyindex&gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>&lt;!-- When true, addset will write sets in
+order of slot index like acv3.&nbsp; When false, addset will write in order
+items are showed in equip screen. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;includeemptyslots&gt;</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>false</span><span style='font-size:14.0pt;line-height:105%;
+color:yellow'>&lt;/includeemptyslots&gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>&lt;!-- When true, addset will include
+&lt;slot&gt;ignore&lt;/slot&gt; nodes for slots that are empty. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;generatemergedfiles&gt;</span><span style='font-size:14.0pt;line-height:
+105%;color:white'>true</span><span style='font-size:14.0pt;line-height:105%;
+color:yellow'>&lt;/generatemergedfiles&gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>&lt;!-- When true, ashitacast will create a
+file in config/ashitacast/merged whenever you load a file that uses includes
+for reference. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>                        </span><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&lt;nakedforpacker&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>true</span><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&lt;/nakedforpacker&gt; </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- When true,
+ashitacast will remove all gear prior to starting /ac gear.  This ensures that
+any gear you have equipped can be properly organized. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- Note that all of these values are just timeouts.&nbsp; If the server
+sends a packet to indicate action is complete, it will be treated as complete
+as soon as the packet is received. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- Setting them
+too low will result in your swaps ending before the action completes.&nbsp;
+Most users will not need to modify any of these besides snapshot and fast cast.
+--&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;petskilldelay&gt;</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>1500</span><span style='font-size:14.0pt;line-height:105%;
+color:yellow'>&lt;/petskilldelay&gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>&lt;!-- Maximum time(in milliseconds) to wait
+for a pet weaponskill to complete. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;weaponskilldelay&gt;</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>1500</span><span style='font-size:14.0pt;line-height:105%;
+color:yellow'>&lt;/weaponskilldelay&gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>&lt;!-- Maximum time(in milliseconds) to wait
+for a weaponskill to complete. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;abilitydelay&gt;</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>1500</span><span style='font-size:14.0pt;line-height:105%;
+color:yellow'>&lt;/abilitydelay&gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>&lt;!-- Maximum time(in milliseconds) to wait
+for a job ability to complete. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;spelloffset&gt;</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>500</span><span style='font-size:14.0pt;line-height:105%;
+color:yellow'>&lt;/spelloffset&gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>&lt;!-- Additional time(in milliseconds) added to
+calculated casttime of spells. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;petspelloffset&gt;</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>500</span><span style='font-size:14.0pt;line-height:105%;
+color:yellow'>&lt;/petspelloffset&gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>&lt;!-- Additional time(in milliseconds) added
+to calculated casttime of pet spells. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;rangedoffset&gt;</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>500</span><span style='font-size:14.0pt;line-height:105%;
+color:yellow'>&lt;/rangedoffset&gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>&lt;!-- Additional time(in milliseconds) added
+to calculated casttime of ranged attacks. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;itemoffset&gt;</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>500</span><span style='font-size:14.0pt;line-height:105%;
+color:yellow'>&lt;/itemoffset&gt; </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>&lt;!-- Additional time(in milliseconds) added
+to calculated casttime of items. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;fastcast&gt;</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>0</span><span style='font-size:14.0pt;line-height:105%;color:yellow'>&lt;/fastcast&gt;
+</span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!--
+Fast cast value to use when calculating casttime of spells. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;snapshot&gt;</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>0</span><span style='font-size:14.0pt;line-height:105%;color:yellow'>&lt;/snapshot&gt;
+</span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!--
+Snapshot value to use when calculating casttime of ranged attacks. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/settings&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;sets&gt; </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!--
+Sets is a </span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>top-level
+node </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>that
+is used for listing your equipment sets. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:yellow'>&lt;set </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>name=”Idle</span><span
+style='font-size:14.0pt;line-height:105%;color:#B4C7E7'>” </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>baseset=”Value”</span><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&gt; </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- Set nodes are
+used to create a new set to be equipped. &nbsp;You may have any amount of them
+within your sets node.--&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>name </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>is required.&nbsp; It
+is used to reference the set later, and can be anything alphanumeric. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!--</span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'> baseset </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>is optional.&nbsp; If
+specified, the set will start from the listed baseset and overwrite any pieces
+listed.--&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;main </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>augpath=”A” augment=”’Fast
+Cast’+7” augrank=”15” augtrial=”1234” </span><span style='font-size:14.0pt;
+line-height:105%;color:#8FAADC'>priority=”0” </span><span style='font-size:
+14.0pt;line-height:105%;color:#A5A5A5'>lock=”true”</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>Bhima</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;/main&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>EquipSlot Nodes </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>can be named: </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>main</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>sub</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> range</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> ammo</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> head</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> neck</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> ear1</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> ear2</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> body</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> hands</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> ring1</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> ring2</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> back</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> waist</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'> legs</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>, or </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>feet</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- </span><span style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Augment
+Attributes </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>can
+be used to specify a piece beyond it’s name.&nbsp; All listed </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Augment Attributes </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>must match for an item
+to match. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- </span><span style='font-size:14.0pt;line-height:105%;color:#8FAADC'>Priority
+Attribute </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>is
+used to determine the order pieces get equipped, primarily to avoid HP or MP drops.&nbsp;
+Priority may be set to any value from -2,147,483,648 to 21.47,483,647.&nbsp;
+Higher priority is equipped first. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- </span><span style='font-size:14.0pt;line-height:105%;color:#A5A5A5'>Lock
+Attribute </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>is
+used to prevent a piece being overwritten by later equip nodes.&nbsp; It only
+applies to the current </span><span style='font-size:14.0pt;line-height:105%;
+color:#4472C4'>top-level node</span><span style='font-size:14.0pt;line-height:
+105%;color:#70AD47'>, so for example a lock set in precast would not affect
+midcast swaps. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- Using </span><span style='font-size:14.0pt;line-height:105%;color:#A5A5A5'>Lock
+Attributes </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>is
+typically indicative of bad design.&nbsp; Consider if they are really the best
+way to accomplish your goal. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/set&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;packer&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Packer node is used to list equipment and items that you
+would like the Packer plugin to retrieve when gearing you using this XML.&nbsp;
+Ashitacast itself does not view this node or any subnodes. &nbsp;You may only
+have one Packer node, and it must be inside your </span><span style='font-size:
+14.0pt;line-height:105%;color:#4472C4'>sets node </span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>--&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;item </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>augpath=”A”
+augment=”’Fast Cast’+7” augrank=”15” augtrial=”1234” </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>quantity=”3”</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>Bhima</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;/item&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>Item Nodes </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>each list an item for
+packer to retrieve. You may use as many as you want within the packer node.
+--&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- </span><span style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Augment
+Attributes </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>are
+treated the same as in </span><span style='font-size:14.0pt;line-height:105%;
+color:#C00000'>EquipSlot Nodes</span><span style='font-size:14.0pt;line-height:
+105%;color:#70AD47'>. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- </span><span style='font-size:14.0pt;line-height:105%;color:#8FAADC'>Quantity
+Attributes </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>allow
+you to request packer get more than one of an item.&nbsp; You may specify an
+integer from 0 to 2,147,483,647 or the string </span><span style='font-size:
+14.0pt;line-height:105%;color:white'>all</span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:yellow'>&lt;/packer&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/sets&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;commands&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Commands is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node </span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>that is used to react to typed commands
+while your XML is loaded. --&gt;.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:yellow'>&lt;command
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>input=”/testcommand”</span><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&gt; </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!--Command nodes,
+when placed in the top level of the commands node, are used to define commands.&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:red'>Anywhere else
+in the XML, they are used to execute commands. </span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>--&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- </span><span style='font-size:14.0pt;line-height:105%;color:white'>Input
+Attributes </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>determine
+the command that a command node will react to.--&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- The contents of a </span><span style='font-size:14.0pt;line-height:
+105%;color:yellow'>command node </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>within the top level of the </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>commands </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>node are processed as </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'> when the matching
+command is sent. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:1.0in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;command&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>/echo Hello!</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;/command&gt; </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- Note that </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>command </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>nodes used inside </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow</span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'> are sent to the game and
+are not the same thing as command nodes in the top level of the </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>commands </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>node. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:1.0in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/command&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!--
+This command would send ‘</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>/echo Hello!</span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>’ to the game whenever you type </span><span style='font-size:
+14.0pt;line-height:105%;color:white'>/testcommand</span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/commands&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;load&gt; </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!--
+Load is a </span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>top-level
+node</span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>.&nbsp;
+It is evaluated as </span><span style='font-size:14.0pt;line-height:105%;
+color:#ED7D31'>flow </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>when your XML is first loaded.&nbsp; You should set variables’
+default values inside load. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/load&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;unload&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Unload is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>.&nbsp; It is evaluated as </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>when your XML is
+unloaded. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/unload&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;default&gt;&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Default is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>.&nbsp; It is evaluated as </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>every packet
+cycle(roughly 350-400ms) when you are not currently performing an action or pet
+action. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/default&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;preranged&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Preranged is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>.&nbsp; It is evaluated as </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>when you perform a
+ranged attack.&nbsp; Equip swaps listed here will occur before the ranged attack
+begins and affect the execution time(use snapshot and rapid shot). --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/preranged&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;midranged&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Midranged is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>.&nbsp; It is evaluated as </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>when you perform a
+ranged attack. Equip swaps listed here will occur before the ranged attack ends
+and affect the damage and effects. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/midranged&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;precast&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Precast is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>.&nbsp; It is evaluated as </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>when you perform a
+spell.&nbsp; Equip swaps listed here will occur before the spell begins and
+affect it’s cast time(use fast cast and quick magic). --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;midcast&gt; &nbsp;</span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Midcast is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>.&nbsp; It is evaluated as </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>when your perform a
+spell.&nbsp; Equip swaps listed here will occur before the spell ends and
+affect the damage, effects, and recast time. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;ability&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Ability is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>.&nbsp; It is evaluated as </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>when you perform a job
+ability.&nbsp; Equip swaps listed here will occur before the ability does and
+affect damage, effects, and recast time. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/ability&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;weaponskill&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Weaponskill is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>.&nbsp; It is evaluated as </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>when you perform a weaponskill.&nbsp;
+Equip swaps listed here will occur before the weaponskill does and affect
+damage, effects, and TP return. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/weaponskill&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;item&gt; </span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!--
+Item is a </span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>top-level
+node</span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>.&nbsp;
+It is evaluated as </span><span style='font-size:14.0pt;line-height:105%;
+color:#ED7D31'>flow </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>when you use an item.&nbsp; Equip swaps listed here will occur
+before the item usage finishes. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/item&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;petskill&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Petskill is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>.&nbsp; It is evaluated as </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>when your pet uses a TP
+move.&nbsp; Equip swaps will occur as soon as your client is told the pet is
+performing the TP move.&nbsp; This may not be fast enough to affect the TP move
+for some jobs and TP moves that are near-instant.&nbsp; Keep that in mind when
+using it. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/petskill&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;petspell&gt; </span><span style='font-size:14.0pt;line-height:105%;
+color:#70AD47'>&lt;!-- Petspell is a </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:#70AD47'>.&nbsp; It is evaluated as </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>when your pet casts a
+spell.&nbsp; Equip swaps will occur as soon as your client is told the pet has
+started casting.&nbsp; This may not be fast enough to affect the spell for some
+jobs and spells that are near-instant.&nbsp; Keep that in mind when using it.
+--&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/petspell&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&lt;/ashitacast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>Flow Tags</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Unless otherwise
+specified, these tags may be used in any section of </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>flow </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>and will achieve the same
+result.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;if&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;elseif&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;else&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>These tags are used to
+control flow.&nbsp; Attributes are covered thoroughly in rules.html.&nbsp; Some
+examples of usage are found at the end of this file.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;equip </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>set=”SetName” </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>priority=”100” </span><span
+style='font-size:14.0pt;line-height:105%;color:#A9D18E'>lock=”true”</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>content</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;/equip&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Equip tags are used to
+set equipment for the current </span><span style='font-size:14.0pt;line-height:
+105%;color:#4472C4'>top-level node</span><span style='font-size:14.0pt;
+line-height:105%;color:white'>.&nbsp; They can be used in </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>default</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>preranged</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>midranged</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>midcast</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>ability</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>weaponskill</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>item</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>petskill</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, and </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>petspell</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>They may contain </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>EquipSlot </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>nodes, as described in
+sets.&nbsp; If a </span><span style='font-size:14.0pt;line-height:105%;
+color:#8FAADC'>Set Attribute </span><span style='font-size:14.0pt;line-height:
+105%;color:white'>is present, and the set contains an equipment slot that is
+also listed as an </span><span style='font-size:14.0pt;line-height:105%;
+color:#C00000'>EquipSlot </span><span style='font-size:14.0pt;line-height:105%;
+color:white'>node, the </span><span style='font-size:14.0pt;line-height:105%;
+color:#C00000'>EquipSlot </span><span style='font-size:14.0pt;line-height:105%;
+color:white'>node will be used for that slot.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>If multiple </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>equip</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> commands are executed
+effecting the same slot, in the same </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:white'>, the latest </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>equip </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>will take priority.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>However, once the </span><span
+style='font-size:14.0pt;line-height:105%;color:#A9D18E'>Lock Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>has been set to true for
+an equipment slot, that equipment slot can only be changed by actions that also
+have the </span><span style='font-size:14.0pt;line-height:105%;color:#A9D18E'>Lock
+Attribute</span><span style='font-size:14.0pt;line-height:105%;color:white'>
+set to true until the end of the </span><span style='font-size:14.0pt;
+line-height:105%;color:#4472C4'>top-level node</span><span style='font-size:
+14.0pt;line-height:105%;color:white'>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>If the </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>Priority Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>or </span><span
+style='font-size:14.0pt;line-height:105%;color:#A9D18E'>Lock Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>are set for both the </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>equip</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> node itself, and the </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>EquipSlot </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>node(whether part of the </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>set</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, or specified in the </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>equip </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>tag’s body), the value in
+the </span><span style='font-size:14.0pt;line-height:105%;color:#C00000'>EquipSlot
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>node will be
+used.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>Set Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is optional, and
+determines a set to equip.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>Priority Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is optional, and sets a
+default priority for any items that do not have their own </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>Priority Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>being processed in this
+tag.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#A9D18E'>Lock Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is optional, and sets a
+default lock status for any items that do not have their own </span><span
+style='font-size:14.0pt;line-height:105%;color:#A9D18E'>Lock Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>being processed in this
+tag.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;command </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>mode=”-1” </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>delay=”1000”</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>content</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;/command&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Command tags will send a
+command to the game client, as if you’d typed it.&nbsp; While they are not
+self-closing, they may not contain any other nodes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>Content </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is required, this is
+where you specify the command to be sent.&nbsp; Any variables listed in </span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>Content</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> will be resolved.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>Mode Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is optional, and will
+change the command’s mode when it is sent to the client.&nbsp; Commonly used
+modes are:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>-1 - Parse.&nbsp; Will be
+seen by ashita, acts identical to if you’d typed the command.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>0 - Menu.&nbsp; Will not
+be seen by Ashita, but allows you to use monster IDs.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>1 - Typed. &nbsp;Will not
+be seen by Ashita, otherwise acts the same as if you’d typed it.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>If you do not specify the
+</span><span style='font-size:14.0pt;line-height:105%;color:#8FAADC'>Mode
+Attribute</span><span style='font-size:14.0pt;line-height:105%;color:white'>,
+mode will be -1.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>Delay Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is optional, and will
+introduce a wait(in milliseconds) before the command is sent out.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Note that if you use the </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>Delay Attribute</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, a thread will be
+spawned.&nbsp; This is critical information for advanced users, but should not
+affect typical use significantly.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;echo </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>mode=”0” </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>delay=”1000” </span><span
+style='font-size:14.0pt;line-height:105%;color:#A9D18E'>color=”1”</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>content</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;/echo&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Echo tags are similar to
+command tags, but instead of sending a command, they print text to your chat
+log.&nbsp; While they are not self-closing, they may not contain any other
+nodes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>Content </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is required, this is
+where you specify the text to be printed.&nbsp; Any variables listed in </span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>Content</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> will be resolved.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>Mode Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is optional, and will
+change the text mode when it is sent to the client.&nbsp; Commonly used modes
+are:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>0 - White, doesn’t appear
+in any subwindows.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>1 - Say(by you)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>2 - Shout(by you)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>4 - Tell(by you)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>5 - Party Chat(by you)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>6 - Linkshell Chat(by
+you)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>7 - Emote (by you)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>9 - Say(by others)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>10 - Shout(by others)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>12 - Tell(by others)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>13 - Party Chat(by
+others)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>14 - Linkshell Chat(by
+others)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>15 - Emote (by others)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>If you do not specify the
+</span><span style='font-size:14.0pt;line-height:105%;color:#8FAADC'>Mode
+Attribute</span><span style='font-size:14.0pt;line-height:105%;color:white'>,
+mode will be 0.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Text will appear in the
+correct tabs, according to the mode it was inserted.&nbsp; It will also change
+color, if the </span><span style='font-size:14.0pt;line-height:105%;color:#A9D18E'>color
+attribute </span><span style='font-size:14.0pt;line-height:105%;color:white'>is
+not specified.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>Delay Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is optional, and will
+introduce a wait(in milliseconds) before the command is sent out.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Note that if you use the </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>Delay Attribute</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, a thread will be spawned.&nbsp;
+This is critical information for advanced users, but should not affect typical
+use significantly.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#A9D18E'>Color Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is optional, and will
+change the text color.&nbsp; It can accept values from 0 to 511.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;setvar </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>name=”name” </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>value=”value” </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>/&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Setvar tags are used to
+set a variable.&nbsp; Note that they are typically self-closing(indicated by
+ending with /&gt; and not needing a second &lt;/tag&gt;), as they do not use </span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>content</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> and cannot contain any
+other nodes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>Name Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is required, and is the
+name of the variable you will be setting.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>Value Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is required, and is the
+value you will be setting the variable to.&nbsp; Note that you may reference
+other variables and use math in the </span><span style='font-size:14.0pt;
+line-height:105%;color:#F8CBAD'>Value Attribute</span><span style='font-size:
+14.0pt;line-height:105%;color:white'>, in the same manner as the advanced tag
+described in Variables.html.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;clearvar </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>name=”name” </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>all=”true”</span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'> </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>/&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Clearvar tags are used to
+erase a variable.&nbsp; Note that they are typically self-closing and cannot
+contain any other nodes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>Name Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is required, and is the name
+of the variable you will be erasing.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>All Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is optional, if it is
+specified with the value of “true”, all variables will be erased.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;change </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>id=”id” </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>name=”name” </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>/&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Change tags can only be
+used in the </span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>ability</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, and </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>weaponskill </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>sections.&nbsp; They are
+used to change to a different action of the same category before it reaches
+server.&nbsp; They are typically self-closing and cannot contain any other
+nodes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>ID Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>Name Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>both refer to the action
+you wish to change to.&nbsp; You must specify at least one, if both are
+specified then the </span><span style='font-size:14.0pt;line-height:105%;
+color:#8FAADC'>ID Attribute </span><span style='font-size:14.0pt;line-height:
+105%;color:white'>will take precedence.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;gearlock </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>length=”3000” </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>/&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Gearlock tags stop all
+equipment swaps for a period of time.&nbsp; If you’ve already used equip tags
+in the same </span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>top-level
+node</span><span style='font-size:14.0pt;line-height:105%;color:white'>, they
+will still go through.&nbsp; They are typically self-closing and cannot contain
+any other nodes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>Length Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is required, and
+specifies the duration of the lock in milliseconds.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;registerbuff </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>id=”id” </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>name=”name” </span><span
+style='font-size:14.0pt;line-height:105%;color:#A9D18E'>active=”true|false”</span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'> </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>/&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Registerbuff tags are
+used to temporarily treat a buff as active or inactive for up to 2
+seconds.&nbsp; They are typically self-closing and cannot contain any other
+nodes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>These are best used when
+abilities are used in rapid succession, faster than the server can acknowledge
+and tell you the buff was gained.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>One example would be
+using Sneak Attack &gt; Trick Attack &gt; Weaponskill.&nbsp; It is likely the
+trick attack buff will not yet be active on your screen when you hit
+weaponskill, so any checks in your weaponskill section will not realize it is
+up.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>You would address this by
+using registerbuff in the ability section, when you use trick attack.&nbsp; By
+giving a 2 second override, the weaponskill will be able to acknowledge that
+trick attack is active, and the swap will be correct.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>ID Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>Name Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>both refer to the buff
+you wish to register.&nbsp; You must specify at least one, if both are
+specified then the </span><span style='font-size:14.0pt;line-height:105%;
+color:#8FAADC'>ID Attribute </span><span style='font-size:14.0pt;line-height:
+105%;color:white'>will take precedence.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#A9D18E'>Active Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>is optional, and will
+default to true.&nbsp; If set to false, it will result in the buff showing as
+inactive.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;clearbuff </span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>id=”id” </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>name=”name” </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>/&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Clearbuff removes a buff
+from the registry prior to the 2 seconds elapsing.&nbsp; They are typically self-closing
+and cannot contain any other nodes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>ID Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>Name Attribute </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>both refer to the buff
+you wish to clear.&nbsp; You must specify at least one, if both are specified
+then the </span><span style='font-size:14.0pt;line-height:105%;color:#8FAADC'>ID
+Attribute </span><span style='font-size:14.0pt;line-height:105%;color:white'>will
+take precedence.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;override /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Override tags are used in
+the </span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>petskill
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>petspell </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>sections. &nbsp;They have
+no attributes, are typically self-closing, and cannot contain any other nodes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>If an override tag is
+hit, no player actions will cause equipment swaps until the pet action
+associated with that section completes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Note that this means
+there are 3 distinct outcomes when a petskill or petspell happens:</span></p>
+
+<p class=MsoListParagraph style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'><span style='font-size:14.0pt;line-height:105%;font-family:
+Symbol;color:white'>·</span><span style='font-size:7.0pt;line-height:105%;
+font-family:"Times New Roman",serif;color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>No matching
+section exists, or a cancel tag is hit: Nothing happens and swaps continue as
+normal.</span></p>
+
+<p class=MsoListParagraph style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'><span style='font-size:14.0pt;line-height:105%;font-family:
+Symbol;color:white'>·</span><span style='font-size:7.0pt;line-height:105%;
+font-family:"Times New Roman",serif;color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>A matching
+section exists, and neither cancel nor override tag is hit: The equipment swap
+will override </span><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>default</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, but if the player
+initiates an action on their own their swap will still occur.</span></p>
+
+<p class=MsoListParagraph style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'><span style='font-size:14.0pt;line-height:105%;font-family:
+Symbol;color:white'>·</span><span style='font-size:7.0pt;line-height:105%;
+font-family:"Times New Roman",serif;color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>A matching section
+exists, and override tag is hit: The equipment swap will persist regardless of
+anything the player does until the pet action completes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;cancel /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Cancel tags are used to
+stop an action from being sent to server.&nbsp; They have no attributes, are
+typically self-closing, and cannot contain any other nodes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>In </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>precast</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>preranged</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>ability</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>weaponskill</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, and </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>item </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>sections, cancel tags
+will stop the action from occuring as well as any swaps that would have
+occurred.&nbsp; The rest of the section will still parse, so other tags may
+change variables or create output.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>In </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>petskill </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>petspell </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>sections, cancel tags
+will not stop the action itself, but will result in ashitacast ignoring
+it.&nbsp; This is useful for actions that are too quick to merit swaps, it will
+save you the swap out of idle gear and back.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>In any other section,
+cancel tags will do nothing. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;return /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Return tags act as if the
+end of the current </span><span style='font-size:14.0pt;line-height:105%;
+color:#4472C4'>top-level node </span><span style='font-size:14.0pt;line-height:
+105%;color:white'>was reached, and end processing when touched.&nbsp; They have
+no attributes, are typically self-closing, and cannot contain any other nodes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Return tags do not stop
+the action, cancel any already processed swaps, or do anything of the
+sort.&nbsp; If paired with a cancel tag, ensure the cancel tag is first.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b><span
+style='font-size:24.0pt;line-height:105%;color:#ED7D31'>Flow</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>As you can see, many parts
+of Ashitacast XMLs are simply listed as </span><span style='font-size:14.0pt;
+line-height:105%;color:#ED7D31'>flow</span><span style='font-size:14.0pt;
+line-height:105%;color:white'>.&nbsp; This means the sections are very flexible
+and you can achieve your intended results many different ways.&nbsp; To start,
+you’ll need to understand how to use if, elseif, and else tags.&nbsp; For
+example usage:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&lt;precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.5in'><span style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>ad_name=”</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>Thunder IV</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&gt; </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- If tags are
+conditional checks.&nbsp; If all </span><span style='font-size:14.0pt;
+line-height:105%;color:#FFC000'>attributes </span><span style='font-size:14.0pt;
+line-height:105%;color:#70AD47'>are met, everything inside the if tag will be
+evaluated.&nbsp; If not, processing will skip to after the end of the if tag.
+--&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;command&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>/echo We’re currently
+casting Thunder IV!</span><span style='font-size:14.0pt;line-height:105%;
+color:#C00000'>&lt;/command&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.5in'><span style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.5in'><span style='font-size:14.0pt;line-height:105%;color:#F4B183'>&lt;elseif </span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>ad_name=”</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>Thunder</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'> </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- &nbsp;tags
+function the same as if tags, but with the condition that they will only be met
+if the prior if or elseif tag was evaluated and it’s attributes were not met.
+--&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;command&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>/echo We’re currently
+casting a Thunder spell besides Thunder IV!</span><span style='font-size:14.0pt;
+line-height:105%;color:#C00000'>&lt;/command&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.5in'><span style='font-size:14.0pt;line-height:105%;color:#F4B183'>&lt;/elseif&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.5in'><span style='font-size:14.0pt;line-height:105%;color:#F4B183'>&lt;elseif </span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>p_mp=”</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>&gt;1000</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#F4B183'>&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'> </span><span
+style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!-- You can chain
+as many elseifs as you would like after one if. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;command&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>/echo We’re currently
+casting a non-Thunder spell and we have more than 1000 MP!</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;/command&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.5in'><span style='font-size:14.0pt;line-height:105%;color:#F4B183'>&lt;/elseif&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.5in'><span style='font-size:14.0pt;line-height:105%;color:#843C0C'>&lt;else&gt;
+</span><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>&lt;!--
+Else tags will be considered met if the prior if or elseif tag was evaluated
+and it was not met. --&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.5in'><span style='font-size:14.0pt;line-height:105%;color:#70AD47'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;command&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>/echo We’re currently
+casting a non-Thunder spell and we have less than or equal to 1000 MP!</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;/command&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.5in'><span style='font-size:14.0pt;line-height:105%;color:#843C0C'>&lt;/else&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&lt;/precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>So, to recap:</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+0in;margin-left:39.0pt;margin-bottom:.0001pt;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>An elseif statement must always
+immediately follow the end of an if or elseif statement.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+0in;margin-left:39.0pt;margin-bottom:.0001pt;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:14.0pt;line-height:105%;color:white'>An else statement must
+always immediately follow the end of an if or elseif statement.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>This means that a given
+set of statements will contain </span><span style='font-size:14.0pt;line-height:
+105%;color:#ED7D31'>one &lt;if&gt; statement</span><span style='font-size:14.0pt;
+line-height:105%;color:white'>, followed by </span><span style='font-size:14.0pt;
+line-height:105%;color:#F8CBAD'>any amount of &lt;elseif&gt; statements(can be
+zero)</span><span style='font-size:14.0pt;line-height:105%;color:white'>,
+followed by </span><span style='font-size:14.0pt;line-height:105%;color:#843C0C'>an
+optional else statement</span><span style='font-size:14.0pt;line-height:105%;
+color:white'>.&nbsp; A set of statements in this configuration will only ever
+enter one of the results.&nbsp; Another example:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&lt;midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>ad_type=”</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>ElementalMagic</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;equip
+set=”</span><span style='font-size:14.0pt;line-height:105%;color:white'>Nuke</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>” /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if </span><span style='font-size:14.0pt;line-height:105%;color:#FFC000'>ad_name=”</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>Impact</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;equip&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#8FAADC'>&lt;head&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>displaced</span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>&lt;/head&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:1.5in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>&lt;body&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>Twilight Cloak</span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>&lt;/body&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;/equip&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&lt;/midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>To achieve the desired
+results, you may nest multiple if statements.&nbsp; Note that no elseif or else
+statements are required to achieve the effect here.&nbsp; In that example, if
+the spell being cast is elemental magic, we equip the nuke set.&nbsp; Further,
+if it is also named impact, we overwrite our head and body slot while keeping
+the rest of the items from the Nuke set.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&lt;default&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&lt;if </span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>p_status=”</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>engaged</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;equip set=”</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>MyTpSet</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>” /&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;else&gt;</span><span style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;equip
+set=”</span><span style='font-size:14.0pt;line-height:105%;color:white'>MyIdleSet</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>” /&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&lt;/else&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if </span><span style='font-size:14.0pt;line-height:105%;color:#FFC000'>p_area=”</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>*Remnants*</span><span
+style='font-size:14.0pt;line-height:105%;color:#FFC000'>”</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;equip&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>&lt;ring1&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>Balrahn’s Ring</span><span
+style='font-size:14.0pt;line-height:105%;color:#8FAADC'>&lt;/ring1</span><span
+style='font-size:14.0pt;line-height:105%;color:#8497B0'>&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#C00000'>&lt;/equip&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&lt;/default&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Adjacent unrelated if
+statements are fine.&nbsp; Note here we have two things happening.&nbsp; First:</span></p>
+
+<p class=MsoListParagraph style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'><span style='font-size:14.0pt;line-height:105%;font-family:
+Symbol;color:white'>·</span><span style='font-size:7.0pt;line-height:105%;
+font-family:"Times New Roman",serif;color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>If you’re
+engaged, the set named ‘MyTpSet’ is equipped.</span></p>
+
+<p class=MsoListParagraph style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'><span style='font-size:14.0pt;line-height:105%;font-family:
+Symbol;color:white'>·</span><span style='font-size:7.0pt;line-height:105%;
+font-family:"Times New Roman",serif;color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>Otherwise,
+the set named ‘MyIdleSet’ is equipped.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Second:</span></p>
+
+<p class=MsoListParagraph style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'><span style='font-size:14.0pt;line-height:105%;font-family:
+Symbol;color:white'>·</span><span style='font-size:7.0pt;line-height:105%;
+font-family:"Times New Roman",serif;color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:14.0pt;line-height:105%;color:white'>If you are
+in a zone with Remnants in the name, your ring1 is overwritten with Balrahn’s
+Ring.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:14.0pt;line-height:105%;color:white'>Pay careful attention to
+the design of your statements to achieve the intended results.&nbsp; Notice
+also that in this case I did not indent the contents of tags; this is because
+XML does not care about your spacing or indentation.&nbsp; It is recommended
+that if an </span><span style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&lt;if&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>,</span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'> &lt;elseif&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'>, or </span><span
+style='font-size:14.0pt;line-height:105%;color:#ED7D31'>&lt;else&gt;</span><span
+style='font-size:14.0pt;line-height:105%;color:white'> statement will not
+terminate in one line without becoming unreasonably long, you create a new line
+and indent further as in my earlier example to make a visual record of what’s
+happening.</span></p>
+
+</div>
+
+</body>
+
+</html>

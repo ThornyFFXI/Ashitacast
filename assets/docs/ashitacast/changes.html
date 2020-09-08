@@ -1,0 +1,1560 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body bgcolor=black lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span style='font-size:28.0pt;line-height:105%;color:#70AD47'>If
+you just want to quickly convert your XMLs, you should read quickstart.html and
+use the import function.</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>Overview</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Ashitacast
+for Ashita4(ACv4) is a ground-up rewrite of Ashitacast.&nbsp; This means some
+features have changed.&nbsp; Your XML will not work as is.&nbsp; If you find
+this upsetting or frightening, don't worry!&nbsp; The plugin LegacyAC is also
+available, and functions as an exact copy of Ashitacast for
+Ashita3(ACv3).&nbsp; Your XML can be used as is; you'll simply need to keep it
+in Ashita/config/LegacyAC instead.&nbsp; That said, I highly recommend anyone
+who maintains their own XML look into ACv4.&nbsp; There are many new features
+to make your life easier.&nbsp; Further, LegacyAC will receive a bare minimum
+of maintenance going forward, and will not receive any new features.&nbsp; I
+will not personally give any support for ACv3 XMLs.&nbsp; This document serves
+to detail all of the changes made compared to ACv3, as a reference for users
+who are already quite familiar with ACv3.&nbsp; The other documents included
+serve as full documentation, so if you're starting fresh, you'll want to review
+them as well.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>Top Level Node Changes</span></b></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;settings&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> has been adjusted
+significantly.&nbsp; See XML structure documentation for new options.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;init&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> has been renamed to </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;load&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>for consistancy with
+ashita API.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;unload&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> has been added as a
+companion to </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;load&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;inputcommands&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> has been renamed to </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;commands&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>for brevity.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;idlegear&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>has been renamed to </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;default&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>to reduce the confusion
+with using 'idle gear' for engaged sets.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;item&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> has been added, and will
+trigger upon usage of items.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;premagic&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>has been changed to </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;precast&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>to better fit player
+language.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;midmagic&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>has been changed to </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;midcast&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>to better fit player
+language.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;jobability&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>has been changed to </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;ability&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>for brevity.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;variables&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>has been removed.&nbsp;
+You should now use </span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>&lt;setvar&gt; </span><span style='font-size:16.0pt;line-height:
+105%;color:white'>tags within your </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;load&gt;</span><span style='font-size:16.0pt;
+line-height:105%;color:white'> section to set initial variable states.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;include&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>tag, as previously used
+for dressme/packer, is now </span><span style='font-size:16.0pt;line-height:
+105%;color:#4472C4'>&lt;packer&gt;</span><span style='font-size:16.0pt;
+line-height:105%;color:white'>.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>Lower Level Node Changes</span></b></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;setvar&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>now supports ^ \* / + and
+- within the value field.&nbsp; For example, you can use </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;setvar
+name=&quot;Count&quot; value=&quot;$count + 1&quot; /&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>to increase a variable by
+1.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;incvar&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;decvar&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>have been removed.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;clearvar&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>has been added, with
+attributes of name and all.&nbsp; For example, you can use </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;clearvar
+name=&quot;Count&quot; /&gt;</span><span style='font-size:16.0pt;line-height:
+105%;color:white'> to remove one variable, or </span><span style='font-size:
+16.0pt;line-height:105%;color:#4472C4'>&lt;clearvar all=&quot;true&quot; /&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>to clear all.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;clearvars&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>has been removed.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;command&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>now has the attribute
+'mode' to determine how the game should process the command.&nbsp; For example,
+you can use </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;command
+mode=&quot;0&quot;&gt;</span><span style='font-size:16.0pt;line-height:105%;
+color:#7030A0'>/ma &quot;Stun&quot; $t_id</span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;/command&gt; </span><span style='font-size:
+16.0pt;line-height:105%;color:white'>to specify a menu style command and act on
+something by ID.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;addtochat&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;addtoecho&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> have been removed.&nbsp;
+</span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;echo&gt;
+</span><span style='font-size:16.0pt;line-height:105%;color:white'>has been
+added, with tags of 'mode' and 'delay' used identically to command.&nbsp; For
+example, you can use </span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>&lt;echo mode=&quot;0&quot; delay=&quot;1000&quot;&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>A full second has
+passed!</span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;/echo&gt;
+</span><span style='font-size:16.0pt;line-height:105%;color:white'>to add
+something to chat in say mode, with a 1000 millisecond delay.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;gearlock&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>now uses milliseconds
+instead of seconds.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;change&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;registerbuff&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, and </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;clearbuff&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>can now accept a name
+attribute in place of an ID attribute.&nbsp; If both are specified, ID will
+take precedence.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;doidlegear&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>has been removed.&nbsp;
+It served no purpose as default is constantly parsed anyway.&nbsp; Simply
+update variables accordingly to create the changes you want in the next pass
+through </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;default&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>In both </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;set&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;equip&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> tags, </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;lear&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;rear&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;lring&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, and </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;rring&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> tags are no longer
+supported.&nbsp; Please use </span><span style='font-size:16.0pt;line-height:
+105%;color:#4472C4'>&lt;ring1&gt;</span><span style='font-size:16.0pt;
+line-height:105%;color:white'>, </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;ring2&gt;</span><span style='font-size:
+16.0pt;line-height:105%;color:white'>,</span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'> &lt;ear1&gt;</span><span style='font-size:
+16.0pt;line-height:105%;color:white'>, and </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;ear2&gt; </span><span style='font-size:
+16.0pt;line-height:105%;color:white'>for standardization.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>Variable System Changes</span></b></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>Variables are now all
+referenced using a $ icon, regardless of whether they are user variables or
+included in ashitacast.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>User variables will be
+prefaced with u_ to indicate such.&nbsp; For example, after using </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;setvar
+name=&quot;Count&quot; value=&quot;3&quot; /&gt;</span><span style='font-size:
+16.0pt;line-height:105%;color:white'> or </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>/ac setvar Count 3</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, you could later use </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>$u_Count </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>to retrieve the value 3.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>To reference an existing
+rule, such as </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>p_name</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, you would simply use </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>$p_name</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>Variables are no longer
+implemented across every tag and attribute in your XML, to reduce excessive
+string reparsing.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>Variable Usage - List of Valid Locations</span></b></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>Any attribute besides </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>mode</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> in an </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>if</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> or </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>elseif</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> tag.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>The body of a </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>command</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> or </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>echo</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> tag.&nbsp; [NOT the
+attributes(mode/delay).]</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>The </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>value</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> attribute of a </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>setvar</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> tag or </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac setvar</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> command. [NOT the name
+attribute.]</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>The </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>augment</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> and/or </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>set </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>attribute of an </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>equip</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> tag. [NOT augpath,
+augtrial, or augrank.]</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>The </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>name</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> attribute of a </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>change</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> tag. [NOT id]</span><span
+style='font-size:16.0pt;line-height:105%;font-family:Symbol;color:white'>         </span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>The body of an </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>equip</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> tag.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>Anywhere in an xml-bound
+command, after the command itself.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>For example, if you have </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;command input=”</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>/mycommand</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>”&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, anything after </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>/mycommand </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>can include variables.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>You may also use the </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac eval </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>command to send a raw
+command with variables replaced.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>For example, if you have
+a monster with an index of 100 targeted and type </span><span style='font-size:
+16.0pt;line-height:105%;color:#4472C4'>/ac eval </span><span style='font-size:
+16.0pt;line-height:105%;color:#7030A0'>/echo $t_index</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, AC will send the
+command </span><span style='font-size:16.0pt;line-height:105%;color:#7030A0'>/echo
+100</span><span style='font-size:16.0pt;line-height:105%;color:white'>.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>If/Elseif Attribute Changes</span></b></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>You may name attributes
+after user variables now.&nbsp; For example, you can use </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;if
+u_Count=&quot;3&quot;&gt;</span><span style='font-size:16.0pt;line-height:105%;
+color:white'> to directly reference a user variable named </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>Count </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>without needing advanced
+tags.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>When using any tag other
+than advanced or buffactive, you may use: </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;= &gt;= &lt; &gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> or </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>! </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>symbol as the beginning
+of a comparand to change the evaluation.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>If none is specified, the
+default evaluation will be </span><span style='font-size:16.0pt;line-height:
+105%;color:#4472C4'>=</span><span style='font-size:16.0pt;line-height:105%;
+color:white'>.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>In tags other than
+advanced, you may seperate multiple comparands with</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'> &amp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>or </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>|</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> but not both in the same
+tag due to ambiguity.&nbsp; For more complex comparisons, please use advanced
+tag.</span></p>
+
+<p class=MsoListParagraph><span style='font-size:16.0pt;line-height:105%;
+color:white'>For example, </span><span style='font-size:16.0pt;line-height:
+105%;color:#4472C4'>&lt;if p_mp=&quot;&lt;500</span><span style='font-size:
+16.0pt;line-height:105%;color:#7030A0'>|</span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&gt;1000</span><span style='font-size:16.0pt;
+line-height:105%;color:#7030A0'>|</span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>=520&quot;&gt;</span><span style='font-size:
+16.0pt;line-height:105%;color:white'> is a valid tag because it only uses </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>|</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>.&nbsp; It will be
+functionally split into</span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>:&nbsp; ($p_mp&lt;500)&nbsp; ($p_mp&gt;1000) ($p_mp=520) </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>and resolve true if any
+of the 3 conditions are true.</span></p>
+
+<p class=MsoListParagraph><span style='font-size:16.0pt;line-height:105%;
+color:white'>However,&nbsp; </span><span style='font-size:16.0pt;line-height:
+105%;color:#4472C4'>&lt;if p_mp=&quot;&lt;500</span><span style='font-size:
+16.0pt;line-height:105%;color:#7030A0'>|</span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&gt;1000</span><span style='font-size:16.0pt;
+line-height:105%;color:#C00000'>&amp;</span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;2000&quot;&gt;] </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>is not a valid tag
+because it uses both</span><span style='font-size:16.0pt;line-height:105%;
+color:#7030A0'> |</span><span style='font-size:16.0pt;line-height:105%;
+color:white'> and </span><span style='font-size:16.0pt;line-height:105%;
+color:#C00000'>&amp;</span><span style='font-size:16.0pt;line-height:105%;
+color:white'>.&nbsp; To accomplish this, you would need to use an advanced tag:
+</span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;if
+p_mp=&quot;&lt;500</span><span style='font-size:16.0pt;line-height:105%;
+color:#7030A0'>|</span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>&gt;1000&quot; </span><span style='font-size:16.0pt;line-height:
+105%;color:#C00000'>advanced=&quot;$p_mp&lt;2000&quot;</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&gt;.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>You may use an
+asterisk(\*) to indicate a wildcard when comparing strings in basic tags, but
+not in the advanced tag.</span></p>
+
+<p class=MsoListParagraph><span style='font-size:16.0pt;line-height:105%;
+color:white'>For example, if you’re casting Reraise and you have this rule: </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;if ad_name=”</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>*raise</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>”&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, it will resolve
+true.&nbsp; However, </span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>&lt;if advanced=”$ad_name=*raise”&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> will resolve false, as
+advanced tags cannot use wildcards.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>Advanced Tag Changes</span></b></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>Advanced tags now use
+order of operations, and only honor parentheses </span><span style='font-size:
+16.0pt;line-height:105%;color:#4472C4'>()</span><span style='font-size:16.0pt;
+line-height:105%;color:white'> not other forms of braces.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>Advanced tags will be
+evaluated in the order </span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>()</span><span style='font-size:16.0pt;line-height:105%;
+color:white'>,</span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>
+^</span><span style='font-size:16.0pt;line-height:105%;color:white'>,</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'> */</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>,</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'> +-</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>,</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'> &lt;&gt;!=</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>|&amp;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>.&nbsp; You may layer
+multiple parentheses as needed.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>Advanced tags cannot use
+wildcards.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>|</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> and </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&amp;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> will no longer honor
+positive values as true the way a C language would.&nbsp; Only expressions that
+have evaluated to true are treated as true.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>Buff Check Changes</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>Buffactive</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> has been removed.&nbsp;
+Instead, use </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>b_id
+</span><span style='font-size:16.0pt;line-height:105%;color:white'>or </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>b_name</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> to receive a count.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>For
+example, </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>$b_</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>33</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> will return the amount
+of buffs with ID of </span><span style='font-size:16.0pt;line-height:105%;
+color:#7030A0'>33</span><span style='font-size:16.0pt;line-height:105%;
+color:white'> you have active(likely 0 or 1, as it is haste.)</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Similarly,
+</span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>$b_</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>haste</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'> </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>will return the amount of
+buffs with the name </span><span style='font-size:16.0pt;line-height:105%;
+color:#7030A0'>haste</span><span style='font-size:16.0pt;line-height:105%;
+color:white'> you have active(whether they are id 33(haste spell) or id 580(indi-haste
+effect).</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>As
+an example usage, </span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>&lt;if b_</span><span style='font-size:16.0pt;line-height:105%;
+color:#7030A0'>33</span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>=&quot;&gt;0&quot;&gt; </span><span style='font-size:16.0pt;
+line-height:105%;color:white'>and </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;if b_</span><span style='font-size:16.0pt;
+line-height:105%;color:#7030A0'>haste</span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>=&quot;&gt;0&quot;&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>will both evaluate as
+true if you have the haste buff active.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>However,
+</span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;if b_</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>haste</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>=&quot;&gt;0&quot;&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>will also evaluate as true
+if you have indi-haste active, even if you do not have the haste buff active.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>To
+use buff checks in advanced rules, simply include the $ prefix like any other
+variable, such as: </span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>&lt;if advanced=&quot;$b_</span><span style='font-size:16.0pt;
+line-height:105%;color:#7030A0'>33</span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&gt;0&quot;&gt;</span><span style='font-size:
+16.0pt;line-height:105%;color:white'>.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Don't
+forget that you can use comments when working off IDs to save yourself
+confusion later</span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>: &lt;if b_</span><span style='font-size:16.0pt;line-height:
+105%;color:#7030A0'>33</span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>=&quot;&gt;0&quot;&gt; </span><span style='font-size:16.0pt;
+line-height:105%;color:#70AD47'>&lt;!--Buff 33 is haste spell!--&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>Augment Changes</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Augment
+codes are no longer in use.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>The
+attribute </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>augpath</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> has been added.&nbsp;
+This will check the path on Delve, Escha, Dynamis, or any other gear with a RP
+system.&nbsp; For example, </span><span style='font-size:16.0pt;line-height:
+105%;color:#4472C4'>&lt;body augpath=&quot;</span><span style='font-size:16.0pt;
+line-height:105%;color:#7030A0'>B</span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&quot;&gt;Adhemar Jacket +1&lt;/body&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> will equip a path </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>B</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> adhemar Jacket +1.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>The
+attribute </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>augrank</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> has been added.&nbsp;
+This will check the rank on Delve, Escha, Dynamis, or any other gear with a RP
+system.&nbsp;&nbsp; For example, </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;main augrank=&quot;</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>25</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&quot;&gt;Rostam&lt;/main&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> will equip a rank </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>25</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> Rostam.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>The
+attribute </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>augtrial</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> has been added.&nbsp;
+This will check the currently flagged trial on any magian gear.&nbsp; For
+example, </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;main
+augtrial=&quot;</span><span style='font-size:16.0pt;line-height:105%;
+color:#7030A0'>71</span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>&quot;&gt;Mantis&lt;/main&gt; </span><span style='font-size:
+16.0pt;line-height:105%;color:white'>will equip a Mantis with the trial #</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>71</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> flagged.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>The
+attribute </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>augment
+</span><span style='font-size:16.0pt;line-height:105%;color:white'>has been
+added.&nbsp; This will check string based augments on dynamically augmented
+pieces(oseem, FoV, refractive capes, etc.).&nbsp; To list multiple augments,
+separate them with commas.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>For
+example, </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;head
+augment=&quot;</span><span style='font-size:16.0pt;line-height:105%;color:#7030A0'>'Fast
+Cast'+7</span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>&quot;&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:#C00000'>Merlinic Hood</span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;/head&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> will only equip a </span><span
+style='font-size:16.0pt;line-height:105%;color:#C00000'>Merlinic Hood </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>that has a </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>Fast Cast+7 </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>augment(whether or not it
+has any other augments).</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>For
+another example, </span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>&lt;feet augment=&quot;</span><span style='font-size:16.0pt;
+line-height:105%;color:#FFC000'>'Triple Atk.'+4</span><span style='font-size:
+16.0pt;line-height:105%;color:#4472C4'>,</span><span style='font-size:16.0pt;
+line-height:105%;color:#7030A0'>Accuracy+20</span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&quot;&gt;</span><span style='font-size:16.0pt;
+line-height:105%;color:#C00000'>Herculean Boots</span><span style='font-size:
+16.0pt;line-height:105%;color:#4472C4'>&lt;/feet&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>will only equip a </span><span
+style='font-size:16.0pt;line-height:105%;color:#C00000'>Herculean Boots </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>that has both </span><span
+style='font-size:16.0pt;line-height:105%;color:#FFC000'>Triple Atk.+4 </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>Accuracy+20</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> augments.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Note
+that the</span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>
+augment </span><span style='font-size:16.0pt;line-height:105%;color:white'>attribute
+will not recognize evolith augments, or some path based augments.&nbsp;
+Whenever possible, path based augments should be specified using </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>augpath</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>.&nbsp; Note also that
+you should replace &quot; with ' for XML compliance.&nbsp; You may list
+multiple augments, seperated by commas.&nbsp; These tags prevent equipping
+items that do not have the parameters listed, but are not necessary.&nbsp; If
+you only have one of an item, you don't need to use any augment tags to ensure
+it is the one equipped, even if it has augments.&nbsp; Further, string augments
+in the </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>augment</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> attribute do not need to
+include every augment on the item.&nbsp; But, every string augment listed must
+match exactly.&nbsp; If in doubt when constructing augment tags, I highly
+recommend using addset to ensure their accuracy.&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>Addset </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>will use </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>augpath</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> attribute for items with
+paths, and </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>augment</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> attribute for other
+augmented items.&nbsp; When data is available, </span><span style='font-size:
+16.0pt;line-height:105%;color:#4472C4'>augpath </span><span style='font-size:
+16.0pt;line-height:105%;color:white'>items will have their augments listed as a
+</span><span style='font-size:16.0pt;line-height:105%;color:#70AD47'>comment</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>Command Changes</span></b></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac addset </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>will now replace existing
+sets, allowing you to adjust your sets on the fly without any text editor.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac set </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>now interprets duration
+in milliseconds instead of seconds.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac validate </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac gear </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>are not currently
+implemented, as they require Packer.&nbsp; They will be added when Packer is
+functional for Ashita4.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac action </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>has been removed, as
+injected packets are viewable in Ashita4, which removes the necessity for it.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac override </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>has been removed, and
+will be handled in the configuration section of your XML.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac setjob </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>and </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac setsub </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>have been removed, as
+injected job change packets can be detected in Ashita4.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac var</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> has been broken into </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac setvar</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac clearvar</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>, and </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac clearvars</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>/ac import </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>has been added, allowing
+you to automatically convert most ACv3 XMLs.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>Misc. Changes</span></b></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>ACv4 will correctly
+insert swaps for injected action packets.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>ACv4 will detect job
+change when caused by injected packets.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>ACv4 will report the line
+and type of error when XML parsing fails.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:white'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>ACv4 will report various
+misuses of tags, including elseif, else, and change that would simply be
+ignored in ACv3.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:24.0pt;line-height:105%;
+color:#ED7D31'>*New* Include Tags</span></b></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Include
+tags have been added.&nbsp; A basic include tag will simply be replaced with
+the entire contents of the listed file.&nbsp; You may list a relative path to
+the current file, or an absolute path.&nbsp; If no path is listed, the folder
+the current XML is in will be checked.&nbsp; For example, you have an XML, </span><span
+style='font-size:16.0pt;line-height:105%;color:#8FAADC'>derp_rdm.xml</span><span
+style='font-size:16.0pt;line-height:105%;color:white'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;ashitacast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;sets&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;set name=&quot;precast&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;head&gt;Merlinic Hood&lt;/head&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/set&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;set name=&quot;midcast&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;head&gt;Amalric Coif +1&lt;/head&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/set&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/sets&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&lt;include&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:#FFC000'>rdm_rules.xml</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&lt;/include&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;/ashitacast&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Then,
+in the same folder, you have </span><span style='font-size:16.0pt;line-height:
+105%;color:#FFC000'>rdm_rules.xml</span><span style='font-size:16.0pt;
+line-height:105%;color:white'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;precast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;midcast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/midcast&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>A
+basic include tag simply replaces it, resulting in:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;ashitacast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;sets&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;set name=&quot;precast&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;head&gt;Merlinic Hood&lt;/head&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/set&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;set name=&quot;midcast&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;head&gt;Amalric Coif +1&lt;/head&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/set&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/sets&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;precast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;midcast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;/ashitacast&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Self-merging
+</span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>include</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> tags have also been
+added.&nbsp; These will combine all </span><span style='font-size:16.0pt;
+line-height:105%;color:#7030A0'>top level nodes </span><span style='font-size:
+16.0pt;line-height:105%;color:white'>from the target xml into your current
+XML.&nbsp; Top level nodes are:</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>sets</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>load</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>unload</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>commands</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>default</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>preranged</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>midranged</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>precast</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>midcast</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>ability</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>weaponskill</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>item</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>petskill</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+16.0pt;line-height:105%;font-family:Symbol;color:#7030A0'>·</span><span
+style='font-size:7.0pt;line-height:105%;font-family:"Times New Roman",serif;
+color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>petspell</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>If
+the </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>include</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> tag is **before** a
+node, the content of that node in the included XML will be merged to the start
+of that node in the current XML.&nbsp; If the </span><span style='font-size:
+16.0pt;line-height:105%;color:#4472C4'>include </span><span style='font-size:
+16.0pt;line-height:105%;color:white'>tag is **after** a node, the content of
+that node in the included XML will be merged to the end of that node in the
+current XML.&nbsp; To reduce confusion, it is recommended that you keep any
+merged include files solely ‘start of section’ or ‘end of section’ content and
+place them immediately after your </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;ashitacast&gt; </span><span
+style='font-size:16.0pt;line-height:105%;color:white'>tag if they are start of
+section, or immediately before your </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;/ashitacast&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> tag if they are end of
+section.</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>For
+example, you have an XML, </span><span style='font-size:16.0pt;line-height:
+105%;color:#8FAADC'>derp_rdm.xml</span><span style='font-size:16.0pt;
+line-height:105%;color:white'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;ashitacast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;precast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;midcast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/midcast&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:16.0pt;line-height:105%;color:#7030A0'>&lt;include
+</span><span style='font-size:16.0pt;line-height:105%;color:#C00000'>merge=&quot;true&quot;</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:#FFC000'>twilightcloak.xml</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&lt;/include&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;/ashitacast&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>And,
+the contents of </span><span style='font-size:16.0pt;line-height:105%;
+color:#FFC000'>twilightcloak.xml</span><span style='font-size:16.0pt;
+line-height:105%;color:white'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&lt;ashitacast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&lt;/ashitacast&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>When
+ashitacast loads </span><span style='font-size:16.0pt;line-height:105%;
+color:#8FAADC'>derp_rdm.xml</span><span style='font-size:16.0pt;line-height:
+105%;color:white'>, it will create a merged file that looks like this:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;ashitacast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;precast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;midcast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;/ashitacast&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Note
+that since the </span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>&lt;include&gt; </span><span style='font-size:16.0pt;line-height:
+105%;color:white'>was **after** the </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;precast&gt; </span><span style='font-size:
+16.0pt;line-height:105%;color:white'>and </span><span style='font-size:16.0pt;
+line-height:105%;color:#4472C4'>&lt;midcast&gt; </span><span style='font-size:
+16.0pt;line-height:105%;color:white'>sections, the inserted content appeared at
+the end of them.&nbsp; If we change derp_rdm.xml to:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;ashitacast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:16.0pt;line-height:105%;color:#7030A0'>&lt;include
+</span><span style='font-size:16.0pt;line-height:105%;color:#C00000'>merge=&quot;true&quot;</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:#FFC000'>twilightcloak.xml</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&lt;/include&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;precast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;midcast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/midcast&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;/ashitacast&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>The
+output will change to:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;ashitacast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;precast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;midcast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;/ashitacast&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>Further,
+if we change </span><span style='font-size:16.0pt;line-height:105%;color:#8FAADC'>derp_rdm.xml</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> to:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;ashitacast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;precast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:16.0pt;line-height:105%;color:#7030A0'>&lt;include
+</span><span style='font-size:16.0pt;line-height:105%;color:#C00000'>merge=&quot;true&quot;</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&gt;</span><span
+style='font-size:16.0pt;line-height:105%;color:#FFC000'>twilightcloak.xml</span><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&lt;/include&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;midcast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/midcast&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;/ashitacast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>The
+output will change to:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;ashitacast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;precast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/precast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#7030A0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;if ad_name=&quot;Impact&quot;&gt;&lt;equip&gt;&lt;body&gt;Twilight
+Cloak&lt;/body&gt;&lt;/equip&gt;&lt;/if&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;equip set=&quot;midcast&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/midcast&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>&lt;/ashitacast&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:105%;color:white'>You
+may use any amount of </span><span style='font-size:16.0pt;line-height:105%;
+color:#4472C4'>&lt;include&gt; </span><span style='font-size:16.0pt;line-height:
+105%;color:white'>tags of either variety.&nbsp; Simple includes will be
+processed from start to end of file, then merge includes from start to end of file.&nbsp;
+If you have </span><span style='font-size:16.0pt;line-height:105%;color:#4472C4'>GenerateMergedFiles</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> enabled, the completely
+merged file after all includes will be generated in </span><span
+style='font-size:16.0pt;line-height:105%;color:#4472C4'>Ashita/config/ashitacast/merged/filename.xml</span><span
+style='font-size:16.0pt;line-height:105%;color:white'> after it has been merged
+and loaded into memory.&nbsp; This is to allow you to more easily troubleshoot
+any issues that may arise due to mistakes in your include tags, and is not
+directly used by ashitacast for anything.&nbsp; If your XML fails to parse, any
+line numbers or error codes will be referring to the merged file, not the
+original file.&nbsp; Note that you will still have to correct the issues in the
+original file after locating them if you plan to load via original file.</span></p>
+
+</div>
+
+</body>
+
+</html>
