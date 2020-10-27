@@ -939,6 +939,12 @@ string ashitacast::importBuffActive(xml_attribute<>* attr, int depth, stringstre
         }
 
         output << " b_";
+
+        if (rawString.find(' ') != string::npos)
+        {
+            *baseOutput << std::string(depth, '\t') << "<!-- ATTN: The buffactive attribute used to construct the following node used a buff name with a space in it.  Please convert it to buff ID. -->\n";
+        }
+
         output << rawString;
         output << "=\"";
 

@@ -3,7 +3,7 @@ Ashitacast is a plugin designed to manage your gear swaps.  This is configured i
 Note that this file only outlines commands, and you should reference the additional material in *ashita/docs/ashitacast/* when creating your XML file(s).
 
 ### Commands
-All commands can be prefixed with **/ashitacast** or **/ac**.
+All commands can be prefixed with **/ashitacast** or **/ac**.<br>
 Any parameter that includes a space must be enclosed in quotation marks(**"**) unless part of /ac eval.
 
 **/ac import [required: filename]**<br>
