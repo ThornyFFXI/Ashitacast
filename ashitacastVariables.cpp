@@ -109,7 +109,7 @@ bool ashitacastVariables::processBasic(const char* attrName, const char* attrVal
     string name    = attrName;
     string content = attrValue;
 
-    if (content.find_first_of('|') != 0)
+    if (content.find_first_of('|') != std::string::npos)
     {
         bool evaluate = false;
 
@@ -118,7 +118,7 @@ bool ashitacastVariables::processBasic(const char* attrName, const char* attrVal
         {
             string comparer;
             getline(stream, comparer, '|');
-            if (comparer.find_first_of("<>!") != 1)
+            if (comparer.find_first_of("<>!") == std::string::npos)
                 comparer = "$" + name + "=" + comparer;
             else
                 comparer = "$" + name + comparer;
@@ -133,14 +133,14 @@ bool ashitacastVariables::processBasic(const char* attrName, const char* attrVal
 
         return evaluate;
     }
-    else if (content.find_first_of('&') != 0)
+    else if (content.find_first_of('&') != std::string::npos)
     {
         stringstream stream(content);
         while (stream.good())
         {
             string comparer;
             getline(stream, comparer, '&');
-            if (comparer.find_first_of("<>!") != 1)
+            if (comparer.find_first_of("<>!") == std::string::npos)
                 comparer = "$" + name + "=" + comparer;
             else
                 comparer = "$" + name + comparer;
@@ -153,7 +153,7 @@ bool ashitacastVariables::processBasic(const char* attrName, const char* attrVal
     }
     else
     {
-        if (content.find_first_of("<>!") != 1)
+        if (content.find_first_of("<>!") == std::string::npos)
             content = "$" + name + "=" + content;
         else
             content = "$" + name + content;

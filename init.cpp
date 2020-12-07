@@ -154,17 +154,18 @@ void ashitacast::initAugmentData()
         fileReader.close();
         buffer[size] = 0x00;
 
-        xml_document<> doc;
+        xml_document<>* doc = new xml_document<>();
         try
         {
-            doc.parse<0>(buffer);
+            doc->parse<0>(buffer);
         }
         catch (...)
         {
             delete[] buffer;
+            delete doc;
             return;
         }
-        xml_node<>* node = doc.first_node("augmentdata");
+        xml_node<>* node = doc->first_node("augmentdata");
         for (node = node->first_node("augments"); node; node = node->next_sibling("augments"))
         {
             int attr = atoi(node->first_attribute("table")->value());
@@ -205,5 +206,6 @@ void ashitacast::initAugmentData()
             }
         }
         delete[] buffer;
+        delete doc;
     }
 }

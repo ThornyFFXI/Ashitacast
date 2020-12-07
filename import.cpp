@@ -112,10 +112,10 @@ void ashitacast::performImport(std::string content, std::string destinationFile)
     char* tempCompleteFile = new char[content.length() + 1];
     strcpy_s(tempCompleteFile, content.length() + 1, content.c_str());
 
-    xml_document<> document = xml_document<>();
+    xml_document<>* document = new xml_document<>();
     try
     {
-        document.parse<0>(tempCompleteFile);
+        document->parse<0>(tempCompleteFile);
     }
     catch (const rapidxml::parse_error& e)
     {
@@ -124,20 +124,25 @@ void ashitacast::performImport(std::string content, std::string destinationFile)
         error << "Could not import XML.  Parse error[$H" << e.what() << "$R] at line " << line << ".";
         pOutput->error(error.str().c_str());
         delete[] tempCompleteFile;
+        delete document;
         return;
     }
     catch (...)
     {
         pOutput->error("Could not import XML.  Unknown error during XML parsing.");
         delete[] tempCompleteFile;
+        delete document;
         return;
     }
 
-    xml_node<>* rootNode = document.first_node("ashitacast");
+    pOutput->error("Document parsed.");
+
+    xml_node<>* rootNode = document->first_node("ashitacast");
     if (!rootNode)
     {
         pOutput->error("Could not import XML.  Ashitacast node was not found.");
         delete[] tempCompleteFile;
+        delete document;
         return;
     }
 
@@ -145,11 +150,12 @@ void ashitacast::performImport(std::string content, std::string destinationFile)
     if (!fileOut.is_open())
     {
         pOutput->error_f("Failed to create new XML to hold import data.  Could not create file. [$H%s$R]", destinationFile.c_str());
+        delete[] tempCompleteFile;
+        delete document;
         return;
     }
 
     stringstream output;
-
     output << "<!-- Automatically converted file for use with Ashitacast For Ashita4. -->\n";
     output << "<!-- Prior to using, please ctrl-f for '<!-- ATTN:' and review all notes. -->\n\n";
     output << "<ashitacast>\n\n";
@@ -191,10 +197,12 @@ void ashitacast::performImport(std::string content, std::string destinationFile)
         if (varsNode)
         {
             output << importVariables(varsNode);
+            pOutput->error("Variables parsed.");
         }
         if (initNode)
         {
             output << importFlow("load", initNode, 2);
+            pOutput->error("Load parsed.");
         }
         output << "\t</load>\n\n";
     }
@@ -216,6 +224,7 @@ void ashitacast::performImport(std::string content, std::string destinationFile)
     fileOut << output.str();
     fileOut.close();
     pOutput->message_f("XML import complete. [$H%s$R]", destinationFile.c_str());
+    delete document;
 }
 
 string ashitacast::importCommands(xml_node<>* baseNode)
@@ -275,6 +284,7 @@ string ashitacast::importSets(xml_node<>* baseNode)
 }
 string ashitacast::importSetNode(xml_node<>* baseNode)
 {
+    xml_attribute<>* name = baseNode->first_attribute("name");
     stringstream output;
 
     map<string, xml_attribute<>*> attrMap = checkAttributes(baseNode, "set", std::list<string>{"name", "baseset", "lock", "priority"}, &output, 2);
@@ -356,11 +366,12 @@ string ashitacast::importEquipSetSlotNode(string slotName, xml_node<>* node)
     if ((!pItem) && (strstr(node->value(), "$") == NULL) && (strstr(node->value(), "%") == NULL))
     {
         //If no item resource, and item doesn't have variables in it, check if it's a keyword..
-        if ((_stricmp(node->value(), "displaced") != 0) && (_stricmp(node->value(), "remove") != 0) && (_stricmp(node->value(), "ignore") == 0))
+        if ((_stricmp(node->value(), "displaced") != 0) && (_stricmp(node->value(), "remove") != 0) && (_stricmp(node->value(), "ignore") != 0))
             //Item is invalid, so error instead of making a new node.
             return "\t\t\t<!-- ATTN: " + string(node->name()) + " node had an invalid piece of equipment(" + string(node->value()) + ").  Node was not imported. -->\n";
     }
 
+    pOutput->error("Checkpoint 1");
     string augmentString                              = " augment=\"unknown\"";
     string commentString                              = "";
     std::map<string, xml_attribute<>*>::iterator attr = attrMap.find("augment");
@@ -371,6 +382,8 @@ string ashitacast::importEquipSetSlotNode(string slotName, xml_node<>* node)
             output << "\t\t\t<!-- ATTN: The node used to construct the following " << slotName << " node had augments that could not be resolved. -->\n";
         }
     }
+
+    pOutput->error("Checkpoint 2");
 
     output << "\t\t\t<" << slotName;
 
@@ -395,6 +408,8 @@ string ashitacast::importEquipSetSlotNode(string slotName, xml_node<>* node)
         output << ">" << item << "</" << slotName << ">";
     }
     output << commentString << '\n';
+
+    pOutput->error("Checkpoint 3");
 
     return output.str();
 }
@@ -1057,10 +1072,17 @@ bool ashitacast::resolveAugment(string* augmentString, const char* itemName, con
     {
         if (x == 3)
             continue;
-        for (int y = 1; y < pInv->GetContainerCountMax(x); y++)
+
+        uint32_t containerMax = pInv->GetContainerCountMax(x);
+        if (containerMax == 4294967295)
+            continue;
+
+        for (int y = 1; y < containerMax; y++)
         {
+            if (x == 5)
+                break;
             Ashita::FFXI::item_t* item = pInv->GetContainerItem(x, y);
-            if ((item->Id < 1) || (item->Count < 1))
+            if ((item == NULL) || (item->Id < 1) || (item->Count < 1))
                 continue;
 
             IItem* resource = m_AshitaCore->GetResourceManager()->GetItemById(item->Id);

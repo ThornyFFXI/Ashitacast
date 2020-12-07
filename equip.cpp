@@ -176,7 +176,7 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
         for (int indexIter = 1; indexIter < pInventory->GetContainerCountMax(*bagIter); indexIter++)
         {
             Ashita::FFXI::item_t* pItem = pInventory->GetContainerItem(*bagIter, indexIter);
-            if (pItem->Id == 0)
+            if ((pItem == NULL) || (pItem->Id == 0))
                 continue;
 
             IItem* pResource = m_AshitaCore->GetResourceManager()->GetItemById(pItem->Id);

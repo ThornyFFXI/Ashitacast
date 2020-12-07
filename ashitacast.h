@@ -5,7 +5,7 @@
 #pragma once
 #endif
 
-#include "C:\Program Files (x86)\Ashita 4\plugins\sdk\Ashita.h"
+#include "C:\Ashita 4\plugins\sdk\Ashita.h"
 #include "Output.h"
 #include "ashitacastGlobals.h"
 #include "ashitacastStructs.h"
@@ -36,7 +36,7 @@ public:
     }
     double GetVersion(void) const override
     {
-        return 0.07f;
+        return 0.10f;
     }
     int32_t GetPriority(void) const override
     {
