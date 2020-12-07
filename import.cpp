@@ -135,8 +135,6 @@ void ashitacast::performImport(std::string content, std::string destinationFile)
         return;
     }
 
-    pOutput->error("Document parsed.");
-
     xml_node<>* rootNode = document->first_node("ashitacast");
     if (!rootNode)
     {
@@ -197,12 +195,10 @@ void ashitacast::performImport(std::string content, std::string destinationFile)
         if (varsNode)
         {
             output << importVariables(varsNode);
-            pOutput->error("Variables parsed.");
         }
         if (initNode)
         {
             output << importFlow("load", initNode, 2);
-            pOutput->error("Load parsed.");
         }
         output << "\t</load>\n\n";
     }
@@ -371,7 +367,6 @@ string ashitacast::importEquipSetSlotNode(string slotName, xml_node<>* node)
             return "\t\t\t<!-- ATTN: " + string(node->name()) + " node had an invalid piece of equipment(" + string(node->value()) + ").  Node was not imported. -->\n";
     }
 
-    pOutput->error("Checkpoint 1");
     string augmentString                              = " augment=\"unknown\"";
     string commentString                              = "";
     std::map<string, xml_attribute<>*>::iterator attr = attrMap.find("augment");
@@ -382,8 +377,6 @@ string ashitacast::importEquipSetSlotNode(string slotName, xml_node<>* node)
             output << "\t\t\t<!-- ATTN: The node used to construct the following " << slotName << " node had augments that could not be resolved. -->\n";
         }
     }
-
-    pOutput->error("Checkpoint 2");
 
     output << "\t\t\t<" << slotName;
 
@@ -408,8 +401,6 @@ string ashitacast::importEquipSetSlotNode(string slotName, xml_node<>* node)
         output << ">" << item << "</" << slotName << ">";
     }
     output << commentString << '\n';
-
-    pOutput->error("Checkpoint 3");
 
     return output.str();
 }
@@ -1079,8 +1070,6 @@ bool ashitacast::resolveAugment(string* augmentString, const char* itemName, con
 
         for (int y = 1; y < containerMax; y++)
         {
-            if (x == 5)
-                break;
             Ashita::FFXI::item_t* item = pInv->GetContainerItem(x, y);
             if ((item == NULL) || (item->Id < 1) || (item->Count < 1))
                 continue;
