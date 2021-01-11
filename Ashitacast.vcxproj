@@ -71,14 +71,15 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>Debug</OutDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
+    <OutDir>Debug\</OutDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>Release</OutDir>
+    <OutDir>Release\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -137,15 +138,9 @@
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy "Release\$(ProjectName).dll" "C:\Ashita 4\plugins\$(ProjectName).dll"
-
-copy "Release\$(ProjectName).dll" "$(SolutionDir)assets\plugins\$(ProjectName).dll"
-
-xcopy "$(SolutionDir)assets\*" "..\..\publish\$(ProjectName)\" /i /e /Y
-
-cd ..\..\publish\$(ProjectName)\
-
-start "C:\Program Files\Git\git-bash.exe"</Command>
+      <Command>if not exist "build\plugins" mkdir "build\plugins"
+copy "Release\$(ProjectName).dll" "$(SolutionDir)build\plugins\$(ProjectName).dll"
+xcopy "$(SolutionDir)build\*" "C:\Ashita 4\" /i /e /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
