@@ -6,7 +6,7 @@
 #endif
 
 #include "ashitacast.h"
-#include "thirdparty\rapidxml.hpp"
+#include "..\common\thirdparty\rapidxml.hpp"
 
 using namespace rapidxml;
 using namespace std;

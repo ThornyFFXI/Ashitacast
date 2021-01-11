@@ -140,7 +140,9 @@
     <PostBuildEvent>
       <Command>if not exist "build\plugins" mkdir "build\plugins"
 copy "Release\$(ProjectName).dll" "$(SolutionDir)build\plugins\$(ProjectName).dll"
-xcopy "$(SolutionDir)build\*" "C:\Ashita 4\" /i /e /Y</Command>
+xcopy "$(SolutionDir)build\*" "C:\Ashita 4\" /i /e /Y
+cd build
+"C:\Program Files\7-Zip\7z.exe" a $(ProjectName).zip * -x!*.zip</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -179,12 +181,10 @@ xcopy "$(SolutionDir)build\*" "C:\Ashita 4\" /i /e /Y</Command>
   <ItemGroup>
     <ClInclude Include="ashitacast.h" />
     <ClInclude Include="ashitacastConfig.h" />
-    <ClInclude Include="Output.h" />
     <ClInclude Include="ashitacastProfile.h" />
     <ClInclude Include="ashitacastGlobals.h" />
     <ClInclude Include="ashitacastStructs.h" />
     <ClInclude Include="ashitacastVariables.h" />
-    <ClInclude Include="safePacketInjector.h" />
     <ClInclude Include="variableConstants.h" />
     <ClInclude Include="xmlHelpers.h" />
   </ItemGroup>

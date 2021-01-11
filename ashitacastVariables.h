@@ -6,7 +6,7 @@
 #endif
 
 #include "C:\Ashita 4\plugins\sdk\Ashita.h"
-#include "Output.h"
+#include "..\common\Output.h"
 #include "ashitacastStructs.h"
 #include <map>
 

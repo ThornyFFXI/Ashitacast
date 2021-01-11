@@ -70,9 +70,6 @@
     <ClInclude Include="ashitacastVariables.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="safePacketInjector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="variableConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -80,9 +77,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="xmlHelpers.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Output.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

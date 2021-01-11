@@ -1,5 +1,5 @@
 #include "ashitacast.h"
-#include "thirdparty\rapidxml.hpp"
+#include "..\common\thirdparty\rapidxml.hpp"
 #include <fstream>
 #include <stdio.h>
 

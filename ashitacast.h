@@ -6,13 +6,13 @@
 #endif
 
 #include "C:\Ashita 4\plugins\sdk\Ashita.h"
-#include "Output.h"
+#include "..\common\Output.h"
 #include "ashitacastGlobals.h"
 #include "ashitacastStructs.h"
 #include "ashitacastConfig.h"
 #include "ashitacastProfile.h"
 #include "ashitacastVariables.h"
-#include "safePacketInjector.h"
+#include "..\common\safePacketInjector.h"
 #include <map>
 
 class ashitacast : IPlugin
