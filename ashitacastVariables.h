@@ -97,7 +97,7 @@ private:
     string splitConditionBasic(string input, size_t offset, string* lhs, size_t* replaceOffset, size_t* replaceLength);
     string trimWhiteSpace(string input);
     bool isNumericValue(string input);
-    bool isWildMatch(const char* lhs, const char* rhs);
+    bool isWildMatch(const char* compare, const char* wc);
 
     string var_a_actiontarget(void);
     string var_a_count(void);

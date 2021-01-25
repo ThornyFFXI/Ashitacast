@@ -121,11 +121,11 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
             continue;
 
         //Handle ignore tags
-        if (equipment[x].name == "ignore")
+        if (_stricmp(equipment[x].name.c_str(), "ignore") == 0)
             continue;
 
         //Handle displaced tags
-        if (equipment[x].name == "displaced")
+        if (_stricmp(equipment[x].name.c_str(), "displaced") == 0)
         {
             pVariables->mEquipOverrides[equipment[x].slot].container  = 0;
             pVariables->mEquipOverrides[equipment[x].slot].index      = 0;
@@ -134,7 +134,7 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
         }
 
         //Set index for remove tags
-        if (equipment[x].name == "remove")
+        if (_stricmp(equipment[x].name.c_str(), "remove") == 0)
         {
             equipRegistry_t equip  = pVariables->getEquippedItem(equipment[x].slot);
             if (equip.index < 1)
@@ -149,15 +149,6 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
         if ((data.encumbered) || (data.disabled))
             continue;
 
-        //Skip slots that are already matching.
-        if (data.index > 0)
-        {
-            Ashita::FFXI::item_t* pItem = pInventory->GetContainerItem(data.container, data.index);
-            IItem* pResource            = m_AshitaCore->GetResourceManager()->GetItemById(pItem->Id);
-            if ((equipment[x].ismatch(pResource)) && (equipment[x].augmatch(createAugmentData(pItem))))
-                continue;
-        }
-
         //Add slot to list.
         equipList.push_back(equipment[x]);
     }
@@ -166,7 +157,7 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
 
     //Sort list by priority.
     equipList.sort([](const equipData_t& a, const equipData_t& b) { return a.priority > b.priority; });
-
+    
     //Iterate bags to find equipment.
     for (std::list<int32_t>::iterator bagIter = mConfig.mEquipBags.begin(); bagIter != mConfig.mEquipBags.end(); bagIter++)
     {
@@ -197,6 +188,9 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
                     //Remove item if it's in another slot already.
                     for (int slotIter = 0; slotIter < slotMax; slotIter++)
                     {
+                        if (slotIter == (*equipIter).slot)
+                            continue;
+
                         equipRegistry_t equip = pVariables->getEquippedItem(slotIter);
                         if ((equip.container == *bagIter) && (equip.index == indexIter))
                         {
@@ -218,14 +212,19 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
             }
         }
     }
-
+    
+    //Remove slots that are already matching and slots where no item could be located.
     for (std::list<equipData_t>::iterator equipIter = equipList.begin(); equipIter != equipList.end();)
     {
-        if ((*equipIter).index == -1)
+        equipRegistry_t data = pVariables->getEquippedItem(equipIter->slot);
+        if ((data.index == equipIter->index) && (data.container == equipIter->container))
+            equipIter = equipList.erase(equipIter);
+        else if ((*equipIter).index == -1)
             equipIter = equipList.erase(equipIter);
         else
             equipIter++;
     }
+
     return equipList;
 }
 

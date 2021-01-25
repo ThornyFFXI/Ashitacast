@@ -771,30 +771,30 @@ bool ashitacastVariables::isNumericValue(string input)
     }
     return true;
 }
-bool ashitacastVariables::isWildMatch(const char* lhs, const char* rhs)
+bool ashitacastVariables::isWildMatch(const char* compare, const char* wc)
 {
-    while (*lhs)
+    while (*wc)
     {
-        if (lhs[0] == '*')
+        if (wc[0] == '*')
         {
-            if (lhs[1] == 0)
+            if (wc[1] == 0)
                 return true;
-            while (*rhs)
+            while (*compare)
             {
-                if (isWildMatch((lhs + 1), rhs))
+                if (isWildMatch(compare, (wc + 1)))
                 {
                     return true;
                 }
-                rhs++;
+                compare++;
             }
             return false;
         }
-        if ((lhs[0] | 32) != (rhs[0] | 32))
+        if ((wc[0] | 32) != (compare[0] | 32))
             return false;
-        lhs++;
-        rhs++;
+        wc++;
+        compare++;
     }
-    return (*rhs == 0);
+    return (*compare == 0);
 }
 
 ffxiDateTime ashitacastVariables::getTimeStamp()
