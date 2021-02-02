@@ -17,6 +17,11 @@
 
 class ashitacast : IPlugin
 {
+private:
+    IAshitaCore* m_AshitaCore;
+    ILogManager* m_LogManager;
+    uint32_t m_PluginId;
+
 public:
     const char* GetName(void) const override
     {
@@ -36,7 +41,7 @@ public:
     }
     double GetVersion(void) const override
     {
-        return 0.15f;
+        return 0.16f;
     }
     int32_t GetPriority(void) const override
     {
