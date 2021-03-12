@@ -41,7 +41,7 @@ public:
     }
     double GetVersion(void) const override
     {
-        return 0.16f;
+        return 0.17f;
     }
     int32_t GetPriority(void) const override
     {
@@ -159,7 +159,7 @@ private:
     //helpers.cpp
     string createSet(string name);
     augmentData_t createAugmentData(Ashita::FFXI::item_t* item);
-    equipData_t createEquipData (xml_node<>* equipNode, int equipSlot);
+    equipData_t createEquipData(xml_node<>* equipNode, int equipSlot);
     int getEquipSlot(string name);
     bool hasBag(int bagIndex);
 

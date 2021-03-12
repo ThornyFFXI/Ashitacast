@@ -277,7 +277,7 @@ int ashitacast::getEquipSlot(string name)
 {
     for (int x = 0; x < slotMax; x++)
     {
-        if (gSlotNames[x] == name)
+        if (_stricmp(gSlotNames[x].c_str(), name.c_str()) == 0)
             return x;
     }
     return -1;
