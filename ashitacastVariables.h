@@ -61,6 +61,9 @@ public:
     string resolveVariables(string input);
     string resolveAdvanced(string input);
     string resolveBasic(string input);
+    string resolveExponents(string input);
+    string resolveMultiplication(string input);
+    string resolveAddition(string input);
     equipRegistry_t getEquippedItem(int slot);
 
 private:
@@ -89,9 +92,6 @@ private:
 
     void initializeResolverMap();
     string resolveVariable(string input, size_t offset);
-    string resolveExponents(string input);
-    string resolveMultiplication(string input);
-    string resolveAddition(string input);
     string resolveConditions(string input);
     string splitCondition(string input, size_t offset, string* lhs, size_t* replaceOffset, size_t* replaceLength);
     string splitConditionBasic(string input, size_t offset, string* lhs, size_t* replaceOffset, size_t* replaceLength);

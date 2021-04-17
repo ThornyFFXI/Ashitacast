@@ -115,7 +115,7 @@ void ashitacast::performImport(std::string content, std::string destinationFile)
     xml_document<>* document = new xml_document<>();
     try
     {
-        document->parse<0>(tempCompleteFile);
+        document->parse<parse_no_entity_translation>(tempCompleteFile);
     }
     catch (const rapidxml::parse_error& e)
     {

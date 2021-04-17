@@ -296,7 +296,10 @@ bool ashitacast::handleOutgoingPacket0x37(uint16_t id, uint32_t size, const uint
 
     //Set action delay
     IItem* pResource                  = m_AshitaCore->GetResourceManager()->GetItemById(mCharacterState.mCurrentAction.abilityId);
-    mCharacterState.playerActionDelay = std::chrono::steady_clock::now() + std::chrono::milliseconds((pResource->CastTime * 250) + mConfig.mItemOffset);
+    if (pResource)
+        mCharacterState.playerActionDelay = std::chrono::steady_clock::now() + std::chrono::milliseconds((pResource->CastTime * 250) + mConfig.mItemOffset);
+    else
+        mCharacterState.playerActionDelay = std::chrono::steady_clock::now() + std::chrono::milliseconds(2800 + mConfig.mItemOffset);
 
     //Reinject our item usage packet so it ends up after precast swaps.
     pPacket->addOutgoingPacket_s(0x37, sizeof(pkItem_t), packet);

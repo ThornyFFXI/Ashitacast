@@ -297,7 +297,12 @@ void ashitacast::processSetVar(xml_node<>* node)
     xml_attribute<>* name  = node->first_attribute("name");
     xml_attribute<>* value = node->first_attribute("value");
     if (name && value)
-        pVariables->setVariable(name->value(), pVariables->resolveVariables(value->value()));
+    {
+        std::string working = pVariables->resolveVariables(value->value());
+        working             = pVariables->resolveMultiplication(working);
+        working             = pVariables->resolveAddition(working);
+        pVariables->setVariable(name->value(), working);
+    }
 }
 void ashitacast::processClearVar(xml_node<>* node)
 {
