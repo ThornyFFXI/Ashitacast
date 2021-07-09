@@ -161,6 +161,7 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
     //Use this lookup for main job level so we get real level, not sync level, in case people want to equip overleveled gear for sync stats.
     int mainJob = m_AshitaCore->GetMemoryManager()->GetPlayer()->GetMainJob();
     int mainJobLevel = m_AshitaCore->GetMemoryManager()->GetPlayer()->GetJobLevel(mainJob);
+    int mainJobFlag  = pow(2, mainJob);
 
     //Iterate bags to find equipment.
     for (std::list<int32_t>::iterator bagIter = mConfig.mEquipBags.begin(); bagIter != mConfig.mEquipBags.end(); bagIter++)
@@ -187,7 +188,7 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
 
                 if (((*equipIter).ismatch(pResource)) && ((*equipIter).augmatch(createAugmentData(pItem))))
                 {
-                    if ((pResource->Jobs & mainJob) == 0)
+                    if ((pResource->Jobs & mainJobFlag) == 0)
                         continue;
                     if (mainJobLevel < pResource->Level)
                         continue;
