@@ -21,7 +21,8 @@ public:
     ~ashitacastProfile(void);
 
     void addSet(string name, string content);
-    void load(const char* filename);
+    void load(const char* playerName, int playerId, int job);
+    bool load(const char* filename);
     void reload();
     void unload();
     rapidxml::xml_node<>* getSection(string name);

@@ -15,11 +15,15 @@ void ashitacast::handleCommands(vector<string> args, int argcount)
 
 void ashitacast::handleEval(const char* command)
 {
-    const char* offset = strstr(command, "eval") + 4;
-    while (offset[0] == ' ')
-        offset++;
-    if (strlen(offset) > 0)
-        m_AshitaCore->GetChatManager()->QueueCommand(0, pVariables->resolveVariables(offset).c_str());
+    const char* offset = strstr(command, "eval");
+    if (offset != NULL)
+    {
+        offset += 4;
+        while (offset[0] == ' ')
+            offset++;
+        if (strlen(offset) > 0)
+            m_AshitaCore->GetChatManager()->QueueCommand(0, pVariables->resolveVariables(offset).c_str());
+    }
 }
 
 void ashitacast::handleLoad(vector<string> args, int argcount, commandHelp help)
@@ -28,15 +32,29 @@ void ashitacast::handleLoad(vector<string> args, int argcount, commandHelp help)
 
     if (argcount == 2)
     {
-        char buffer[1024];
-        sprintf_s(buffer, 1024, "%s_%s.xml",
-            m_AshitaCore->GetMemoryManager()->GetParty()->GetMemberName(0),
-            m_AshitaCore->GetResourceManager()->GetString("jobs_abbr", m_AshitaCore->GetMemoryManager()->GetPlayer()->GetMainJob(), 0));
-        pProfile->load(buffer);
+        pProfile->load(mCharacterState.lastName.c_str(), mCharacterState.lastId, m_AshitaCore->GetMemoryManager()->GetPlayer()->GetMainJob());
     }
     else
     {
-        pProfile->load(args[2].c_str());
+        char fileName[1024];
+        sprintf_s(fileName, 1024, "%sconfig\\ashitacast\\%s_%d\\%s%s",
+            m_AshitaCore->GetInstallPath(), mCharacterState.lastName.c_str(), mCharacterState.lastId, args[2].c_str(),
+            ((args[2].length() < 4) || (_stricmp(args[2].substr(args[2].length() - 4).c_str(), ".xml") != 0)) ? ".xml" : "");
+        if (!std::filesystem::exists(fileName))
+        {
+            sprintf_s(fileName, 1024, "%sconfig\\ashitacast\\%s%s",
+                m_AshitaCore->GetInstallPath(), args[2].c_str(),
+                ((args[2].length() < 4) || (_stricmp(args[2].substr(args[2].length() - 4).c_str(), ".xml") != 0)) ? ".xml" : "");
+        }
+        if (std::filesystem::exists(fileName))
+        {
+            pProfile->load(fileName);
+        }
+        else
+        {
+            pOutput->error_f("Could not find an XML matching %s.", args[2].c_str());
+            return;
+        }
     }
 
     pVariables->clearVariables();
@@ -183,16 +201,18 @@ void ashitacast::handleAddSet(vector<string> args, int argcount, commandHelp hel
 
 void ashitacast::handleNewXml(vector<string> args, int argcount, commandHelp help)
 {
-    string fileName = std::string(m_AshitaCore->GetInstallPath()) + "config\\ashitacast\\";
+    char fileName[1024];
     if (argcount > 2)
-        fileName += args[2];
+    {
+        sprintf_s(fileName, 1024, "%sconfig\\ashitacast\\%s_%d\\%s%s",
+            m_AshitaCore->GetInstallPath(), mCharacterState.lastName.c_str(), mCharacterState.lastId, args[2].c_str(),
+            ((args[2].length() < 4) || (_stricmp(args[2].substr(args[2].length() - 4).c_str(), ".xml") != 0)) ? ".xml" : "");
+    }
     else
     {
-        char buffer[1024];
-        sprintf_s(buffer, 1024, "%s_%s.xml",
-            m_AshitaCore->GetMemoryManager()->GetParty()->GetMemberName(0),
-            m_AshitaCore->GetResourceManager()->GetString("jobs_abbr", m_AshitaCore->GetMemoryManager()->GetPlayer()->GetMainJob(), 0));
-        fileName += buffer;
+        sprintf_s(fileName, 1024, "%sconfig\\ashitacast\\%s_%d\\%s.xml",
+            m_AshitaCore->GetInstallPath(), mCharacterState.lastName.c_str(), mCharacterState.lastId,
+            m_AshitaCore->GetResourceManager()->GetString("jobs_abbr", m_AshitaCore->GetMemoryManager()->GetPlayer()->GetMainJob()));
     }
 
     if (std::filesystem::exists(fileName))
@@ -200,6 +220,22 @@ void ashitacast::handleNewXml(vector<string> args, int argcount, commandHelp hel
         pOutput->error_f("File already exists: $H%s$R", fileName);
         return;
     }
+
+    //Ensure directories exist, making them if not.
+    string makeDirectory(fileName);
+    size_t nextDirectory = makeDirectory.find("\\");
+    nextDirectory        = makeDirectory.find("\\", nextDirectory + 1);
+    while (nextDirectory != string::npos)
+    {
+        string currentDirectory = makeDirectory.substr(0, nextDirectory + 1);
+        if ((!CreateDirectory(currentDirectory.c_str(), NULL)) && (ERROR_ALREADY_EXISTS != GetLastError()))
+        {
+            pOutput->error_f("Could not find or create folder. [$H%s$R]", currentDirectory.c_str());
+            return;
+        }
+        nextDirectory = makeDirectory.find("\\", nextDirectory + 1);
+    }
+
     std::ofstream xmlWriter(fileName, std::ofstream::binary);
     if (!xmlWriter.is_open())
     {
@@ -215,9 +251,10 @@ void ashitacast::handleNewXml(vector<string> args, int argcount, commandHelp hel
     }
     xmlWriter << "</ashitacast>";
     xmlWriter.close();
-    pProfile->load(fileName.c_str());
-    if (pProfile->mIsLoaded)
+    if (pProfile->load(fileName))
+    {
         crawlSection("load");
+    }
 }
 void ashitacast::handleSetVar(vector<string> args, int argcount, commandHelp help)
 {

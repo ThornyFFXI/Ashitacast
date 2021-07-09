@@ -143,6 +143,7 @@ struct equipRegistry_t
 struct characterState_t
 {
     string lastName;
+    int lastId;
     actionData_t mCurrentAction;
     std::chrono::time_point<std::chrono::steady_clock> gearLockDelay;
     std::chrono::time_point<std::chrono::steady_clock> playerActionDelay;

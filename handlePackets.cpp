@@ -2,20 +2,17 @@
 
 void ashitacast::handleIncomingPacket0x0A(uint16_t id, uint32_t size, const uint8_t* data)
 {
+    uint32_t currentId = Read32(data, 4);
     std::string currentName((const char*)data + 0x84);
     if (currentName.length() > 16)
         currentName = currentName.substr(0, 16);
 
-    if (currentName != mCharacterState.lastName)
+    if ((currentName != mCharacterState.lastName) || (currentId != mCharacterState.lastId))
     {
         mCharacterState.lastName = currentName;
-        char buffer[1024];
-        sprintf_s(buffer, 1024, "%s_%s.xml",
-            currentName.c_str(),
-            m_AshitaCore->GetResourceManager()->GetString("jobs_abbr", Read8(data, 0xB4), 0));
-
+        mCharacterState.lastId   = currentId;
         crawlSection("unload");
-        pProfile->load(buffer);
+        pProfile->load(mCharacterState.lastName.c_str(), mCharacterState.lastId, Read8(data, 0xB4));
         pVariables->clearVariables();
         crawlSection("load");
     }
@@ -310,12 +307,7 @@ void ashitacast::handleOutgoingPacket0x100(uint16_t id, uint32_t size, const uin
     if (Read8(data, 4) == 0)
         return;
 
-    char buffer[1024];
-    sprintf_s(buffer, 1024, "%s_%s.xml",
-        m_AshitaCore->GetMemoryManager()->GetParty()->GetMemberName(0),
-        m_AshitaCore->GetResourceManager()->GetString("jobs_abbr", Read8(data, 4), 0));
-
     crawlSection("unload");
-    pProfile->load(buffer);
+    pProfile->load(mCharacterState.lastName.c_str(), mCharacterState.lastId, Read8(data, 4));
     crawlSection("load");
 }

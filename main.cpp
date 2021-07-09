@@ -39,13 +39,10 @@ bool ashitacast::Initialize(IAshitaCore* core, ILogManager* logger, const uint32
 
     if (m_AshitaCore->GetMemoryManager()->GetParty()->GetMemberIsActive(0))
     {
-        char buffer[1024];
-        sprintf_s(buffer, 1024, "%s_%s.xml",
-            m_AshitaCore->GetMemoryManager()->GetParty()->GetMemberName(0),
-            m_AshitaCore->GetResourceManager()->GetString("jobs_abbr", m_AshitaCore->GetMemoryManager()->GetPlayer()->GetMainJob(), 0));
-        pProfile->load(buffer);
-        crawlSection("load");
         mCharacterState.lastName = m_AshitaCore->GetMemoryManager()->GetParty()->GetMemberName(0);
+        mCharacterState.lastId  = m_AshitaCore->GetMemoryManager()->GetParty()->GetMemberServerId(0);
+        pProfile->load(mCharacterState.lastName.c_str(), mCharacterState.lastId, m_AshitaCore->GetMemoryManager()->GetPlayer()->GetMainJob());
+        crawlSection("load");
     }
 
     return true;

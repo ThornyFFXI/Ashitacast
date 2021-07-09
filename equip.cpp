@@ -158,13 +158,17 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
     //Sort list by priority.
     equipList.sort([](const equipData_t& a, const equipData_t& b) { return a.priority > b.priority; });
     
+    //Use this lookup for main job level so we get real level, not sync level, in case people want to equip overleveled gear for sync stats.
+    int mainJob = m_AshitaCore->GetMemoryManager()->GetPlayer()->GetMainJob();
+    int mainJobLevel = m_AshitaCore->GetMemoryManager()->GetPlayer()->GetJobLevel(mainJob);
+
     //Iterate bags to find equipment.
     for (std::list<int32_t>::iterator bagIter = mConfig.mEquipBags.begin(); bagIter != mConfig.mEquipBags.end(); bagIter++)
     {
         if (!hasBag(*bagIter))
             continue;
 
-        for (int indexIter = 1; indexIter < pInventory->GetContainerCountMax(*bagIter); indexIter++)
+        for (int indexIter = 1; indexIter <= pInventory->GetContainerCountMax(*bagIter); indexIter++)
         {
             Ashita::FFXI::item_t* pItem = pInventory->GetContainerItem(*bagIter, indexIter);
             if ((pItem == NULL) || (pItem->Id == 0))
@@ -183,6 +187,11 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
 
                 if (((*equipIter).ismatch(pResource)) && ((*equipIter).augmatch(createAugmentData(pItem))))
                 {
+                    if ((pResource->Jobs & mainJob) == 0)
+                        continue;
+                    if (mainJobLevel < pResource->Level)
+                        continue;
+
                     bool canEquip = true;
 
                     //Remove item if it's in another slot already.

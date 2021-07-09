@@ -1,6 +1,7 @@
 #include "ashitacast.h"
 #include "ashitacastProfile.h"
 #include "xmlHelpers.h"
+#include <filesystem>
 #include <fstream>
 #include <stdio.h>
 
@@ -29,7 +30,7 @@ rapidxml::xml_node<>* ashitacastProfile::getSection(string name)
     }
     return NULL;
 }
-void ashitacastProfile::load(const char* filename)
+void ashitacastProfile::load(const char* playerName, int playerId, int job)
 {
     if (mIsLoaded)
     {
@@ -37,39 +38,51 @@ void ashitacastProfile::load(const char* filename)
         mIsLoaded = false;
     }
 
-    stringstream file(filename);
-    ifstream file_reader(file.str().c_str(), ios::in | ios::binary | ios::ate);
+    const char* playerJob = m_AshitaCore->GetResourceManager()->GetString("jobs_abbr", job, 0);
+    char fileName[1024];
+    sprintf_s(fileName, 1024, "%sconfig\\ashitacast\\%s_%d\\%s.xml",
+        m_AshitaCore->GetInstallPath(), playerName, playerId, playerJob);
+    if (!std::filesystem::exists(fileName))
+    {
+        sprintf_s(fileName, 1024, "%sconfig\\ashitacast\\%s_%s.xml",
+            m_AshitaCore->GetInstallPath(), playerName, playerJob);
+    }
+    if (!std::filesystem::exists(fileName))
+    {
+        pOutput->error_f("Could not find an XML to autoload for %s[%s].", playerName, playerJob);
+        return;
+    }
+
+    load(fileName);
+}
+bool ashitacastProfile::load(const char* filename)
+{
+    if (mIsLoaded)
+    {
+        delete[] mCompleteFile;
+        mIsLoaded = false;
+    }
+
+    ifstream file_reader(filename, ios::in | ios::binary | ios::ate);
     if (!file_reader.is_open())
     {
-        file.str("");
-        file << m_AshitaCore->GetInstallPath() << "config\\ashitacast\\";
-        file << filename;
-        file_reader = ifstream(file.str().c_str(), ios::in | ios::binary | ios::ate);
-        if (!file_reader.is_open())
-        {
-            file << ".xml";
-            file_reader = ifstream(file.str().c_str(), ios::in | ios::binary | ios::ate);
-            if (!file_reader.is_open())
-            {
-                pOutput->error_f("Failed to load XML.  Could not locate file. [$H%s$R]", filename);
-                mIsLoaded = false;
-                return;
-            }
-        }
+        pOutput->error_f("Failed to load XML.  [$H%s$R]", filename);
+        mIsLoaded = false;
+        return false;
     }
 
     mFileData.resize(file_reader.tellg());
     file_reader.seekg(0, ios::beg);
     file_reader.read(&mFileData[0], mFileData.size());
     file_reader.close();
-    mFilePath = file.str();
+    mFilePath = std::string(filename);
     size_t ashitacastTagLocation;
     mFileData = XmlHelpers::getXmlTag(mFileData, "ashitacast", &ashitacastTagLocation);
     if (mFileData == "")
     {
         pOutput->error_f("Failed to load XML.  Could not find <ashitacast> tag.  [$H%s$R]", filename);
         mIsLoaded = false;
-        return;
+        return false;
     }
 
     for (int last = mFilePath.size() - 1; ((mFilePath[last] != '\\') && (mFilePath[last] != '/')); last--)
@@ -81,7 +94,7 @@ void ashitacastProfile::load(const char* filename)
     if (!handleIncludes())
     {
         mIsLoaded = false;
-        return;
+        return false;
     }
 
     loadSettings(mFileData);
@@ -112,6 +125,7 @@ void ashitacastProfile::load(const char* filename)
         }
         mIsLoaded = true;
         pOutput->message_f("XML loaded. [$H%s$R]", mFileName.c_str());
+        return true;
     }
     catch (const rapidxml::parse_error& e)
     {
@@ -136,6 +150,7 @@ void ashitacastProfile::load(const char* filename)
         pOutput->error("Failed to load XML.  Unknown error during XML parsing.");
         mIsLoaded = false;
     }
+    return false;
 }
 void ashitacastProfile::reload()
 {
