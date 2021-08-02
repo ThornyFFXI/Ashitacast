@@ -358,7 +358,7 @@ void ashitacast::processChange(xml_node<>* node)
                 ISpell* spellResource = m_AshitaCore->GetResourceManager()->GetSpellByName(pVariables->resolveVariables(nameTag->value()).c_str(), 0);
                 if (spellResource)
                 {
-                    mCharacterState.mCurrentAction.abilityId = spellResource->Id;
+                    mCharacterState.mCurrentAction.abilityId = spellResource->Index;
                     mCharacterState.mCurrentAction.raw.param = mCharacterState.mCurrentAction.abilityId;
                 }
                 else
