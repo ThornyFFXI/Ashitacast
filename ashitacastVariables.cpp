@@ -796,7 +796,7 @@ bool ashitacastVariables::isWildMatch(const char* compare, const char* wc)
         wc++;
         compare++;
     }
-    return (*compare == 0);
+    return ((*compare == 0) && (*wc == 0));
 }
 
 ffxiDateTime ashitacastVariables::getTimeStamp()
