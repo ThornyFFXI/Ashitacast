@@ -75,6 +75,7 @@ bool ashitacastProfile::load(const char* filename)
     file_reader.seekg(0, ios::beg);
     file_reader.read(&mFileData[0], mFileData.size());
     file_reader.close();
+    mFileData = XmlHelpers::stripComments(mFileData);
     mFilePath = std::string(filename);
     size_t ashitacastTagLocation;
     mFileData = XmlHelpers::getXmlTag(mFileData, "ashitacast", &ashitacastTagLocation);

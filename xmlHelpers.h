@@ -152,6 +152,19 @@ namespace XmlHelpers
             *position += offset;
         return retvalue;
     }
+    static string stripComments(string content)
+    {        
+        size_t comment = content.find("<!--");
+        while (comment != string::npos)
+        {
+            size_t endComment = content.find("-->", comment);
+            if (endComment == string::npos)
+                return content;
+            content = content.substr(0, comment) + content.substr(endComment + 3);
+            comment = content.find("<!--");
+        }
+        return content;
+    }
 }
 
 
