@@ -171,6 +171,9 @@ std::list<equipData_t> ashitacast::parseInventoryForEquipment(equipData_t* equip
 
         for (int indexIter = 1; indexIter <= pInventory->GetContainerCountMax(*bagIter); indexIter++)
         {
+            if (indexIter > 80)
+                break;
+
             Ashita::FFXI::item_t* pItem = pInventory->GetContainerItem(*bagIter, indexIter);
             if ((pItem == NULL) || (pItem->Id == 0))
                 continue;

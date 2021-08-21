@@ -243,7 +243,7 @@ bool ashitacast::handleOutgoingPacket0x1A(uint16_t id, uint32_t size, const uint
         return true;
     }
 
-    else if (packet->category == 10) //Ranged
+    else if (packet->category == 0x10) //Ranged
     {
         //Populate necessary data and process precast swaps.
         mCharacterState.mCurrentAction = actionData_t(actionType::Ranged, *packet);

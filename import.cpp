@@ -1065,11 +1065,11 @@ bool ashitacast::resolveAugment(string* augmentString, const char* itemName, con
             continue;
 
         uint32_t containerMax = pInv->GetContainerCountMax(x);
-        if (containerMax == 4294967295)
-            continue;
-
         for (int y = 1; y < containerMax; y++)
         {
+            if (y > 80)
+                break;
+
             Ashita::FFXI::item_t* item = pInv->GetContainerItem(x, y);
             if ((item == NULL) || (item->Id < 1) || (item->Count < 1))
                 continue;
