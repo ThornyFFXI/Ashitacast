@@ -21,6 +21,7 @@ public:
     int mJobAbilityDelay; //Determines the length of time gear will be locked for a job ability event if the end JA packet is not received
     int mSpellOffset; //Adds extra time to calculated spell length when determining the length of time gear will be locked for a spell event if the end spell packet is not received.
     int mPetSpellOffset; //Adds extra time to calculated spell length when determining the length of time gear will be locked for a petspell event if the end spell packet is not received.
+    int mRangedDelay; //Default duration to wait for a ranged attack to execute.  If end ranged packet is received, this will be cut short.
     int mRangedOffset; //Adds extra time to calculated ranged length when determining the length of time gear will be locked for a ranged event if the end ranged packet is not received.
     int mItemOffset; //Adds extra time to calculated item length when determining the length of time gear will be locked for an item event if the end item packet is not received.
     int mFastCast; //Allows you to set a fast cast value which will modify calculated spell casttimes for spell events.
@@ -38,6 +39,7 @@ public:
         , mJobAbilityDelay(1500)
         , mSpellOffset(500)
         , mPetSpellOffset(500)
+        , mRangedDelay(10000)
         , mRangedOffset(500)
         , mItemOffset(500)
         , mFastCast(0)

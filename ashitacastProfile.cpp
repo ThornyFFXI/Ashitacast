@@ -244,6 +244,12 @@ void ashitacastProfile::loadSettings(string ashitacastTag)
         pConfig->mPetSpellOffset = max(1, min(3600000, atoi(XmlHelpers::getTagContent(pendingTag).c_str())));
     }
 
+    pendingTag = XmlHelpers::getXmlTag(settingsTag, "rangeddelay", &position);
+    if (position != string::npos)
+    {
+        pConfig->mRangedDelay = max(1, min(3600000, atoi(XmlHelpers::getTagContent(pendingTag).c_str())));
+    }
+
     pendingTag = XmlHelpers::getXmlTag(settingsTag, "rangedoffset", &position);
     if (position != string::npos)
     {

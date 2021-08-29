@@ -259,12 +259,7 @@ bool ashitacast::handleOutgoingPacket0x1A(uint16_t id, uint32_t size, const uint
         //Reinject our action packet so it ends up after precast swaps.
         pPacket->addOutgoingPacket_s(0x1A, sizeof(pkAction_t), &mCharacterState.mCurrentAction.raw);
 
-        IInventory* pInv             = m_AshitaCore->GetMemoryManager()->GetInventory();
-        equipRegistry_t equip        = pVariables->getEquippedItem((int)Ashita::FFXI::Enums::EquipmentSlot::Range);
-        Ashita::FFXI::item_t* pRange = pInv->GetContainerItem(equip.container, equip.index);
-        IItem* pResource             = m_AshitaCore->GetResourceManager()->GetItemById(pRange->Id);
-
-        double baseCast                   = (double)pResource->Delay / (double).120;
+        double baseCast = mConfig.mRangedDelay;
         double postSnap                   = baseCast * ((100 - mConfig.mSnapShot) / 100);
         int actualDelay                   = (int)floor(postSnap) + mConfig.mRangedOffset;
         mCharacterState.playerActionDelay = std::chrono::steady_clock::now() + std::chrono::milliseconds(actualDelay);

@@ -25,23 +25,23 @@ private:
 public:
     const char* GetName(void) const override
     {
-        return u8"Ashitacast";
+        return "Ashitacast";
     }
     const char* GetAuthor(void) const override
     {
-        return u8"Thorny";
+        return "Thorny";
     }
     const char* GetDescription(void) const override
     {
-        return u8"A plugin to handle your equipment swaps automatically as you play.";
+        return "A plugin to handle your equipment swaps automatically as you play.";
     }
     const char* GetLink(void) const override
     {
-        return u8"https://github.com/Lolwutt/ashitacast";
+        return "https://github.com/Lolwutt/ashitacast";
     }
     double GetVersion(void) const override
     {
-        return 0.27f;
+        return 0.29f;
     }
     int32_t GetPriority(void) const override
     {
