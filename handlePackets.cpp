@@ -95,36 +95,45 @@ void ashitacast::handleIncomingPacket0x28(uint16_t id, uint32_t size, const uint
 
         if (actionType == 8) //Pet Spell
         {
-            uint16_t actionId       = Ashita::BinaryData::UnpackBitsBE((uint8_t*)data, 213, 10);
-            uint32_t actionTargetId = Ashita::BinaryData::UnpackBitsBE((uint8_t*)data, 18, 6, 32);
-            uint16_t actionTarget   = 0;
-            for (int x = 0; x < 0x900; x++)
+            if (Ashita::BinaryData::UnpackBitsBE((uint8_t*)data, 0, 86, 16) == 28787) //Interrupt
             {
-                if (m_AshitaCore->GetMemoryManager()->GetEntity()->GetServerId(x) == actionTargetId)
-                {
-                    actionTarget = x;
-                    break;
-                }
+                mCharacterState.petOverride    = false;
+                mCharacterState.petActionDelay = std::chrono::steady_clock::now() - std::chrono::seconds(1);
+                return;
             }
-
-            if (Ashita::BinaryData::UnpackBitsBE((uint8_t*)data, 0, 86, 16) != 28787) //Interrupt
+            else
             {
-                ISpell* pResource = m_AshitaCore->GetResourceManager()->GetSpellById(actionId);
-                if (!pResource)
-                    return;
-
-                mCharacterState.mCurrentAction.cancel = true;
-                mCharacterState.petOverride           = false;
-                mCharacterState.petActionDelay        = std::chrono::steady_clock::now() - std::chrono::seconds(1);
-                mCharacterState.mCurrentAction        = actionData_t(actionType::PetSpell, actionTarget, actionId);
-                crawlSection("petspell");
-                mCharacterState.mCurrentAction.active = false;
-
-                if (!mCharacterState.mCurrentAction.cancel)
+                uint16_t actionId       = Ashita::BinaryData::UnpackBitsBE((uint8_t*)data, 213, 10);
+                uint32_t actionTargetId = Ashita::BinaryData::UnpackBitsBE((uint8_t*)data, 18, 6, 32);
+                uint16_t actionTarget   = 0;
+                for (int x = 0; x < 0x900; x++)
                 {
-                    int baseCast                   = pResource->CastTime * 250;
-                    int actualDelay                = baseCast + mConfig.mPetSpellOffset;
-                    mCharacterState.petActionDelay = std::chrono::steady_clock::now() + std::chrono::milliseconds(mConfig.mPetSkillDelay);
+                    if (m_AshitaCore->GetMemoryManager()->GetEntity()->GetServerId(x) == actionTargetId)
+                    {
+                        actionTarget = x;
+                        break;
+                    }
+                }
+
+                if (Ashita::BinaryData::UnpackBitsBE((uint8_t*)data, 0, 86, 16) != 28787) //Interrupt
+                {
+                    ISpell* pResource = m_AshitaCore->GetResourceManager()->GetSpellById(actionId);
+                    if (!pResource)
+                        return;
+
+                    mCharacterState.mCurrentAction.cancel = true;
+                    mCharacterState.petOverride           = false;
+                    mCharacterState.petActionDelay        = std::chrono::steady_clock::now() - std::chrono::seconds(1);
+                    mCharacterState.mCurrentAction        = actionData_t(actionType::PetSpell, actionTarget, actionId);
+                    crawlSection("petspell");
+                    mCharacterState.mCurrentAction.active = false;
+
+                    if (!mCharacterState.mCurrentAction.cancel)
+                    {
+                        int baseCast                   = pResource->CastTime * 250;
+                        int actualDelay                = baseCast + mConfig.mPetSpellOffset;
+                        mCharacterState.petActionDelay = std::chrono::steady_clock::now() + std::chrono::milliseconds(mConfig.mPetSkillDelay);
+                    }
                 }
             }
         }
