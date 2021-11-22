@@ -212,7 +212,7 @@ void ashitacast::handleNewXml(vector<string> args, int argcount, commandHelp hel
     {
         sprintf_s(fileName, 1024, "%sconfig\\ashitacast\\%s_%d\\%s.xml",
             m_AshitaCore->GetInstallPath(), mCharacterState.lastName.c_str(), mCharacterState.lastId,
-            m_AshitaCore->GetResourceManager()->GetString("jobs_abbr", m_AshitaCore->GetMemoryManager()->GetPlayer()->GetMainJob()));
+            m_AshitaCore->GetResourceManager()->GetString("jobs.names_abbr", m_AshitaCore->GetMemoryManager()->GetPlayer()->GetMainJob()));
     }
 
     if (std::filesystem::exists(fileName))

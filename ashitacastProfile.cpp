@@ -38,7 +38,7 @@ void ashitacastProfile::load(const char* playerName, int playerId, int job)
         mIsLoaded = false;
     }
 
-    const char* playerJob = m_AshitaCore->GetResourceManager()->GetString("jobs_abbr", job, 0);
+    const char* playerJob = m_AshitaCore->GetResourceManager()->GetString("jobs.names_abbr", job, 0);
     char fileName[1024];
     sprintf_s(fileName, 1024, "%sconfig\\ashitacast\\%s_%d\\%s.xml",
         m_AshitaCore->GetInstallPath(), playerName, playerId, playerJob);

@@ -224,7 +224,7 @@ string ashitacastVariables::resolveVariable(string input, size_t offset)
         int matchingLength = 0;
         for (int x = 0; x < 650; x++)
         {
-            const char* buff = pResource->GetString("buffs", x);
+            const char* buff = pResource->GetString("buffs.names", x);
             if (!buff)
                 continue;
             int length = strlen(buff);

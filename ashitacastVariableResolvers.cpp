@@ -269,7 +269,7 @@ string ashitacastVariables::var_ad_name()
         }
         else if (mCurrentAction->type == actionType::PetSkill_MobSkill)
         {
-            const char* mobSkillName = pResource->GetString("mobskills", mCurrentAction->abilityId);
+            const char* mobSkillName = pResource->GetString("monsters.abilities", mCurrentAction->abilityId);
             if (mobSkillName == NULL)
                 return "UNRESOLVED_STRING";
             return mobSkillName;
@@ -341,7 +341,7 @@ string ashitacastVariables::var_ad_type()
         else if (mCurrentAction->type == actionType::PetSkill_MobSkill)
         {
             IAbility* abilityResource = NULL;
-            const char* mobSkillName  = pResource->GetString("mobskills", mCurrentAction->abilityId);
+            const char* mobSkillName  = pResource->GetString("monsters.abilities", mCurrentAction->abilityId);
             for (int x = 0; x < ABILITY_MAX; x++)
             {
                 IAbility* tempResource = pResource->GetAbilityById(x + 0x200);
@@ -439,7 +439,7 @@ string ashitacastVariables::var_at_type()
 
 string ashitacastVariables::var_e_area()
 {
-    return pResource->GetString("zones", pParty->GetMemberZone(0));
+    return pResource->GetString("zones.names", pParty->GetMemberZone(0));
 }
 
 string ashitacastVariables::var_e_day()
@@ -834,9 +834,9 @@ string ashitacastVariables::var_p_ismoving()
 string ashitacastVariables::var_p_job()
 {
     stringstream ret;
-    ret << pResource->GetString("jobs_abbr", pPlayer->GetMainJob());
+    ret << pResource->GetString("jobs.names_abbr", pPlayer->GetMainJob());
     ret << "/";
-    ret << pResource->GetString("jobs_abbr", pPlayer->GetSubJob());
+    ret << pResource->GetString("jobs.names_abbr", pPlayer->GetSubJob());
     return ret.str();
 }
 
@@ -857,7 +857,7 @@ string ashitacastVariables::var_p_lightresist()
 
 string ashitacastVariables::var_p_mainjob()
 {
-    return pResource->GetString("jobs_abbr", pPlayer->GetMainJob());
+    return pResource->GetString("jobs.names_abbr", pPlayer->GetMainJob());
 }
 
 string ashitacastVariables::var_p_mp()
@@ -891,7 +891,7 @@ string ashitacastVariables::var_p_status()
 
 string ashitacastVariables::var_p_subjob()
 {
-    return pResource->GetString("jobs_abbr", pPlayer->GetSubJob());
+    return pResource->GetString("jobs.names_abbr", pPlayer->GetSubJob());
 }
 
 string ashitacastVariables::var_p_subjoblevel()

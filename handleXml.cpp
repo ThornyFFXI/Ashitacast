@@ -484,7 +484,7 @@ void ashitacast::processRegisterBuff(xml_node<>* node)
     xml_attribute<>* nameTag = node->first_attribute("name");
     if (nameTag)
     {
-        buffId = m_AshitaCore->GetResourceManager()->GetString("buffs", nameTag->value());
+        buffId = m_AshitaCore->GetResourceManager()->GetString("buffs.names", nameTag->value());
     }
 
     xml_attribute<>* idTag = node->first_attribute("id");
@@ -510,7 +510,7 @@ void ashitacast::processClearBuff(xml_node<>* node)
     xml_attribute<>* nameTag = node->first_attribute("name");
     if (nameTag)
     {
-        buffId = m_AshitaCore->GetResourceManager()->GetString("buffs", nameTag->value());
+        buffId = m_AshitaCore->GetResourceManager()->GetString("buffs.names", nameTag->value());
     }
 
     xml_attribute<>* idTag = node->first_attribute("id");
