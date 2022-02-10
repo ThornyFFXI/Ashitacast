@@ -64,7 +64,7 @@ void ashitacast::handleIncomingPacket0x28(uint16_t id, uint32_t size, const uint
 
         if (actionType == 7) //Pet WS
         {
-            uint16_t actionId       = Ashita::BinaryData::UnpackBitsBE((uint8_t*)data, 213, 10);
+            uint16_t actionId       = Ashita::BinaryData::UnpackBitsBE((uint8_t*)data, 213, 17);
             uint16_t actionMessage  = Ashita::BinaryData::UnpackBitsBE((uint8_t*)data, 230, 10);
             uint32_t actionTargetId = Ashita::BinaryData::UnpackBitsBE((uint8_t*)data, 18, 6, 32);
             uint16_t actionTarget   = 0;

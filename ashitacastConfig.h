@@ -27,7 +27,7 @@ public:
     int mFastCast; //Allows you to set a fast cast value which will modify calculated spell casttimes for spell events.
     int mSnapShot; //Allows you to set a snapshot value which will modify calculated ranged duration for ranged events.
     ashitacastConfig()
-        : mEquipBags({0, 8, 10, 11, 12})
+        : mEquipBags({0, 8, 10, 11, 12, 13, 14, 15, 16})
         , mEnableWardrobeCheck(true)
         , mOrderByIndex(false)
         , mIncludeEmptySlots(false)

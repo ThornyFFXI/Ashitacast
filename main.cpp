@@ -24,7 +24,7 @@ bool ashitacast::Initialize(IAshitaCore* core, ILogManager* logger, const uint32
     mPackerDelay   = std::chrono::steady_clock::now() - std::chrono::milliseconds(1000);
     MODULEINFO mod = {0};
     ::GetModuleInformation(::GetCurrentProcess(), ::GetModuleHandle("FFXiMain.dll"), &mod, sizeof(MODULEINFO));
-    pWardrobe = Ashita::Memory::FindPattern((uintptr_t)mod.lpBaseOfDll, (uintptr_t)mod.SizeOfImage, "A1????????568BF1578B88????????C1E902F6C101", 0, 0);
+    pWardrobe = Ashita::Memory::FindPattern((uintptr_t)mod.lpBaseOfDll, (uintptr_t)mod.SizeOfImage, "A1????????8B88B4000000C1E907F6C101E9", 1, 0);
 
     pOutput    = new OutputHelpers(core, logger, "Ashitacast");
 

@@ -286,17 +286,11 @@ bool ashitacast::hasBag(int bagIndex)
 {
     if (mConfig.mEnableWardrobeCheck)
     {
-        if (bagIndex == 11)
+        if (bagIndex > 10)
         {
-            DWORD Memloc = Read32(pWardrobe, 1);
+            DWORD Memloc = Read32(pWardrobe, 0);
             Memloc       = Read32(Memloc, 0);
-            return ((Read8(Memloc, 0xB4) & 0x04) != 0);
-        }
-        else if (bagIndex == 12)
-        {
-            DWORD Memloc = Read32(pWardrobe, 1);
-            Memloc       = Read32(Memloc, 0);
-            return ((Read8(Memloc, 0xB4) & 0x08) != 0);
+            return (Ashita::BinaryData::UnpackBitsBE((uint8_t*)Memloc, 0xB4, 0, 1) == 1);
         }
     }
     return true;

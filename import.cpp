@@ -1059,7 +1059,7 @@ bool ashitacast::resolveAugment(string* augmentString, const char* itemName, con
 {
     IInventory* pInv = m_AshitaCore->GetMemoryManager()->GetInventory();
 
-    for (int x = 0; x < 13; x++)
+    for (int x = 0; x < 17; x++)
     {
         if (x == 3)
             continue;
