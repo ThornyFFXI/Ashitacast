@@ -1,3 +1,6 @@
+## A note to potential new users
+While Ashitacast will remain functional for the foreseeable future and there is no obligation for anyone to change off of it, I would like to point out that LuAshitacast is a much more efficient and clean tool for the same purpose.  XML is not well-suited to programming tasks, and while there are improvements that could be made such as preprocessing into jump tables, Ashitacast at present does far too many string comparisons.  This is unlikely to matter on a modern processor, but extremely complex files may end up wasting some cpu time.  The lack of access to looping iteration and other basic functions a real language would have also limits your ability to customize things to extremes.  I highly recommend that anyone who is just getting started(and even those with some existing knowledge) consider looking at LuAshitacast instead.
+
 # Ashitacast
 Ashitacast is a plugin designed to manage your gear swaps.  This is configured in an XML file, which should be placed in *ashita/config/ashitacast/* and named *CharacterName_JOB.xml*.  
 Note that this file only outlines commands, and you should reference the additional material in *ashita/docs/ashitacast/* when creating your XML file(s).
