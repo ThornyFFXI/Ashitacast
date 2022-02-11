@@ -290,7 +290,7 @@ bool ashitacast::hasBag(int bagIndex)
         {
             DWORD Memloc = Read32(pWardrobe, 0);
             Memloc       = Read32(Memloc, 0);
-            return (Ashita::BinaryData::UnpackBitsBE((uint8_t*)Memloc, 0xB4, 0, 1) == 1);
+            return (Ashita::BinaryData::UnpackBitsBE((uint8_t*)Memloc, 0xB4, bagIndex - 9, 1) == 1);
         }
     }
     return true;
