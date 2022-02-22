@@ -53,6 +53,9 @@
     <ClCompile Include="import.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GearListEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ashitacast.h">

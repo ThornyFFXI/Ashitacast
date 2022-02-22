@@ -41,7 +41,7 @@ public:
     }
     double GetVersion(void) const override
     {
-        return 1.04f;
+        return 1.10f;
     }
     int32_t GetPriority(void) const override
     {
@@ -77,8 +77,6 @@ private:
     std::map<string, xmlNodeHandler, cistringcmp> mNodeMap;
     std::map<string, importHandler, cistringcmp> mImportMap;
     vector<augmentResource_t> mAugmentData[3][0x800];
-    std::chrono::time_point<std::chrono::steady_clock> mPackerDelay;
-    rapidxml::xml_document<>* mPackerDelayXml;
 
     ashitacastConfig mConfig;
     characterState_t mCharacterState;
@@ -87,7 +85,6 @@ private:
     ashitacastVariables* pVariables;
     safePacketInjector* pPacket;
     DWORD pWardrobe;
-    packerPluginEvent_t mEventBuffer;
 
     //init.cpp
     void initHandlerMaps();
@@ -112,6 +109,10 @@ private:
     void handleClearVar(vector<string> args, int argcount, commandHelp help);
     void handleClearVars(vector<string> args, int argcount, commandHelp help);
     void handleDebug(vector<string> args, int argcount, commandHelp help);
+    void handlePack(vector<string> args, int argcount, commandHelp help);
+    void handleUnpack(vector<string> args, int argcount, commandHelp help);
+    void handlePrepPack(vector<string> args, int argcount, commandHelp help);
+    void handlePrepUnpack(vector<string> args, int argcount, commandHelp help);
     void handleValidate(vector<string> args, int argcount, commandHelp help);
     void handleGear(vector<string> args, int argcount, commandHelp help);
     void handleBench(vector<string> args, int argcount, commandHelp help);
@@ -203,6 +204,9 @@ private:
 
     map<string, xml_attribute<>*> checkAttributes(xml_node<>* node, string nodeName, std::list<string> validAttributes, stringstream* output, int depth);
 
+    GearListEvent_t* CreateGearEvent();
+    void combineOrder(list<GearListEntry_t>* list, GearListEntry_t order);
+    void integrateOrder(list<GearListEntry_t>* list, GearListEntry_t order);
     bool resolveAugment(string* augmentString, const char* itemName, const char* augmentCode, string* comment);
     string getLegacyAugment(unsigned char Input[]);
 };

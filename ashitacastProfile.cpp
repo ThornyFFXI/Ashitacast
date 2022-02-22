@@ -210,10 +210,6 @@ void ashitacastProfile::loadSettings(string ashitacastTag)
     if (position != string::npos)
         pConfig->mGenerateMergedFiles = (XmlHelpers::getTagContent(pendingTag) != "false");
 
-    pendingTag = XmlHelpers::getXmlTag(settingsTag, "nakedforpacker", &position);
-    if (position != string::npos)
-        pConfig->mNakedForPacker = (XmlHelpers::getTagContent(pendingTag) != "false");
-
     pendingTag = XmlHelpers::getXmlTag(settingsTag, "petskilldelay", &position);
     if (position != string::npos)
     {

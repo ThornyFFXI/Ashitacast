@@ -170,6 +170,7 @@ cd build
   <ItemGroup>
     <ClCompile Include="ashitacastVariableResolvers.cpp" />
     <ClCompile Include="equip.cpp" />
+    <ClCompile Include="GearListEvent.cpp" />
     <ClCompile Include="handleXml.cpp" />
     <ClCompile Include="ashitacastProfile.cpp" />
     <ClCompile Include="handleCommands.cpp" />

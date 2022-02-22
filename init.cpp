@@ -99,6 +99,26 @@ void ashitacast::initHandlerMaps()
     combo.help.description = "Use the plugin Packer to collect all equipment in your sets section according to your configured settings in Packer.  Note that all slots will be disabled while Packer executes, and if you have 'nakedforpacker' enabled they will also be emptied.  In both cases, slots will be enabled as soon as Packer completes.";
     mCommandMap.insert(std::make_pair("gear", combo));
 
+    combo.handler          = &ashitacast::handlePack;
+    combo.help.command     = "/ac pack";
+    combo.help.description = "Use the addon porter to store items with the porter moogle.";
+    mCommandMap.insert(std::make_pair("pack", combo));
+
+    combo.handler          = &ashitacast::handleUnpack;
+    combo.help.command     = "/ac unpack";
+    combo.help.description = "Use the addon porter to retrieve items from porter moogle.";
+    mCommandMap.insert(std::make_pair("unpack", combo));
+
+    combo.handler          = &ashitacast::handlePrepPack;
+    combo.help.command     = "/ac preppack";
+    combo.help.description = "Use the addon porter to retrieve items that can be stored with the porter moogle.";
+    mCommandMap.insert(std::make_pair("preppack", combo));
+
+    combo.handler          = &ashitacast::handlePrepUnpack;
+    combo.help.command     = "/ac prepunpack";
+    combo.help.description = "Use the addon porter to retrieve slips for use with porter moogle.";
+    mCommandMap.insert(std::make_pair("prepunpack", combo));
+
     combo.handler          = &ashitacast::handleBench;
     combo.help.command     = "/ac bench";
     combo.help.description = "Benchmark command for developer use only.";

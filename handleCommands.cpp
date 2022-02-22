@@ -289,6 +289,66 @@ void ashitacast::handleDebug(vector<string> args, int argcount, commandHelp help
 
     pOutput->message_f("Debug $H%s$R.", mConfig.mDebugEnabled ? "enabled" : "disabled");
 }
+void ashitacast::handlePack(vector<string> args, int argcount, commandHelp help)
+{
+    if (!pProfile->mIsLoaded)
+    {
+        pOutput->error("Could not activate porter.  No XML was loaded.");
+        return;
+    }
+
+    GearListEvent_t* pGearEvent = this->CreateGearEvent();
+    if (pGearEvent)
+    {
+        m_AshitaCore->GetPluginManager()->RaiseEvent("porter_pack", pGearEvent, sizeof(GearListEvent_t));
+        delete pGearEvent;
+    }
+}
+void ashitacast::handleUnpack(vector<string> args, int argcount, commandHelp help)
+{
+    if (!pProfile->mIsLoaded)
+    {
+        pOutput->error("Could not activate porter.  No XML was loaded.");
+        return;
+    }
+
+    GearListEvent_t* pGearEvent = this->CreateGearEvent();
+    if (pGearEvent)
+    {
+        m_AshitaCore->GetPluginManager()->RaiseEvent("porter_unpack", pGearEvent, sizeof(GearListEvent_t));
+        delete pGearEvent;
+    }
+}
+void ashitacast::handlePrepPack(vector<string> args, int argcount, commandHelp help)
+{
+    if (!pProfile->mIsLoaded)
+    {
+        pOutput->error("Could not activate porter.  No XML was loaded.");
+        return;
+    }
+
+    GearListEvent_t* pGearEvent = this->CreateGearEvent();
+    if (pGearEvent)
+    {
+        m_AshitaCore->GetPluginManager()->RaiseEvent("porter_preppack", pGearEvent, sizeof(GearListEvent_t));
+        delete pGearEvent;
+    }
+}
+void ashitacast::handlePrepUnpack(vector<string> args, int argcount, commandHelp help)
+{
+    if (!pProfile->mIsLoaded)
+    {
+        pOutput->error("Could not activate porter.  No XML was loaded.");
+        return;
+    }
+
+    GearListEvent_t* pGearEvent = this->CreateGearEvent();
+    if (pGearEvent)
+    {
+        m_AshitaCore->GetPluginManager()->RaiseEvent("porter_prepunpack", pGearEvent, sizeof(GearListEvent_t));
+        delete pGearEvent;
+    }
+}
 void ashitacast::handleValidate(vector<string> args, int argcount, commandHelp help)
 {
     if (!m_AshitaCore->GetPluginManager()->IsLoaded("Packer"))
@@ -301,9 +361,13 @@ void ashitacast::handleValidate(vector<string> args, int argcount, commandHelp h
         pOutput->error("Could not activate packer.  No XML was loaded.");
         return;
     }
-    
-    mEventBuffer.document = &pProfile->mXmlDocument;
-    m_AshitaCore->GetPluginManager()->RaiseEvent("packer_validate", &mEventBuffer, sizeof(packerPluginEvent_t));
+
+    GearListEvent_t* pGearEvent = this->CreateGearEvent();
+    if (pGearEvent)
+    {
+        m_AshitaCore->GetPluginManager()->RaiseEvent("packer_validate", pGearEvent, sizeof(GearListEvent_t));
+        delete pGearEvent;
+    }
 }
 void ashitacast::handleGear(vector<string> args, int argcount, commandHelp help)
 {
@@ -318,26 +382,11 @@ void ashitacast::handleGear(vector<string> args, int argcount, commandHelp help)
         return;
     }
 
-    for (int x = 0; x < 16; x++)
+    GearListEvent_t* pGearEvent = this->CreateGearEvent();
+    if (pGearEvent)
     {
-        pVariables->mEquipOverrides[x].disabled = true;
-    }
-    if (mConfig.mNakedForPacker)
-    {
-        pOutput->message("Removing all equipment for Packer.");
-        for (int x = 0; x < 16; x++)
-        {
-            removeEquip(x);
-        }
-
-        //This triggers on outgoing 0x15 once 2 seconds have passed, so inventory has time to reflect that the gear has been removed.
-        mPackerDelay = std::chrono::steady_clock::now() + std::chrono::milliseconds(2000);
-        mPackerDelayXml = &pProfile->mXmlDocument;
-    }
-    else
-    {
-        mEventBuffer.document = &pProfile->mXmlDocument;
-        m_AshitaCore->GetPluginManager()->RaiseEvent("packer_gear", &mEventBuffer, sizeof(packerPluginEvent_t));
+        m_AshitaCore->GetPluginManager()->RaiseEvent("packer_gear", pGearEvent, sizeof(GearListEvent_t));
+        delete pGearEvent;
     }
 }
 void ashitacast::handleImport(vector<string> args, int argcount, commandHelp help)

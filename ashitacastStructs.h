@@ -12,13 +12,6 @@
 
 using namespace std;
 
-struct packerPluginEvent_t
-{
-    char fileName[512];
-    char returnEvent[256];
-    rapidxml::xml_document<>* document;
-};
-
 struct cistringcmp
 {
     bool operator()(const string& lhs, const string& rhs) const
@@ -114,6 +107,108 @@ struct actionData_t
         target    = raw.targetIndex;
         abilityId = raw.param;
     }
+};
+
+struct GearListEntry_t
+{
+    char Name[32];
+    int32_t Quantity;
+    int32_t AugPath;
+    int32_t AugRank;
+    int32_t AugTrial;
+    int32_t AugCount;
+    char AugString[10][100];
+
+public:
+    GearListEntry_t()
+    {}
+
+    GearListEntry_t(rapidxml::xml_node<>* node, IItem* pResource)
+    {
+        strcpy_s(Name, 32, node->value());
+        Quantity       = 1;
+
+        AugPath               = -1;
+        rapidxml::xml_attribute<>* attr = node->first_attribute("augpath");
+        if (attr)
+        {
+            if (attr->value()[0] == 'A')
+                AugPath = 1;
+            else if (attr->value()[0] == 'B')
+                AugPath = 2;
+            else if (attr->value()[0] == 'C')
+                AugPath = 3;
+            else if (attr->value()[0] == 'D')
+                AugPath = 4;
+        }
+
+        AugRank = -1;
+        attr    = node->first_attribute("augrank");
+        if (attr)
+        {
+            AugRank = atoi(attr->value());
+        }
+
+        AugTrial = -1;
+        attr     = node->first_attribute("augtrial");
+        if (attr)
+        {
+            AugTrial = atoi(attr->value());
+        }
+
+        AugCount = 0;
+        attr = node->first_attribute("augment");
+        if ((attr) && (strlen(attr->value()) > 0))
+        {
+            stringstream stream(attr->value());
+            while (stream.good())
+            {
+                string augment;
+                getline(stream, augment, ',');
+                strcpy_s(AugString[AugCount], 100, augment.c_str());
+                AugCount++;
+            }
+        }
+
+        if (_stricmp(node->name(), "item") == 0)
+        {
+            attr = node->first_attribute("quantity");
+            if (attr)
+            {
+                if (_stricmp(attr->value(), "all") == 0)
+                    Quantity       = -1;
+                else
+                    Quantity = atoi(attr->value());
+            }
+        }
+    }
+
+    bool operator==(const GearListEntry_t& other)
+    {
+        if (_stricmp(Name, other.Name) != 0)
+            return false;
+
+        if ((AugPath != other.AugPath) || (AugRank != other.AugRank) || (AugTrial != other.AugTrial))
+            return false;
+
+        if (AugCount != other.AugCount)
+            return false;
+
+        for (int x = 0; x < AugCount; x++)
+        {
+            if (strcmp(AugString[x], other.AugString[x]) != 0)
+                return false;
+        }
+
+        return true;
+    }
+};
+
+struct GearListEvent_t
+{
+    char Sender[256];
+    int32_t EntryCount;
+    GearListEntry_t Entries[1000];
 };
 
 struct buffRegistry_t

@@ -13,7 +13,6 @@ public:
     bool mOrderByIndex; //Determines if addset should be written in order of index or visible order.
     bool mIncludeEmptySlots; //Determines if addset should write in a slot if it is empty.
     bool mGenerateMergedFiles; //Determines if a hard copy of merged files should be written when using includes.
-    bool mNakedForPacker; //Determines if AC will use naked command and a delay prior to running packer.
     bool mDebugEnabled;
 
     int mPetSkillDelay; //Determines the length of time gear will be locked for a petskill event if the end skill WS packet is not received.
@@ -33,7 +32,6 @@ public:
         , mIncludeEmptySlots(false)
         , mGenerateMergedFiles(true)
         , mDebugEnabled(false)
-        , mNakedForPacker(true)
         , mPetSkillDelay(1500)
         , mWeaponskillDelay(1500)
         , mJobAbilityDelay(1500)

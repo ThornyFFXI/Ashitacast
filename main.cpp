@@ -21,7 +21,6 @@ bool ashitacast::Initialize(IAshitaCore* core, ILogManager* logger, const uint32
     m_LogManager = logger;
     m_PluginId   = id;
 
-    mPackerDelay   = std::chrono::steady_clock::now() - std::chrono::milliseconds(1000);
     MODULEINFO mod = {0};
     ::GetModuleInformation(::GetCurrentProcess(), ::GetModuleHandle("FFXiMain.dll"), &mod, sizeof(MODULEINFO));
     pWardrobe = Ashita::Memory::FindPattern((uintptr_t)mod.lpBaseOfDll, (uintptr_t)mod.SizeOfImage, "A1????????8B88B4000000C1E907F6C101E9", 1, 0);
@@ -34,8 +33,6 @@ bool ashitacast::Initialize(IAshitaCore* core, ILogManager* logger, const uint32
     pPacket    = new safePacketInjector(core->GetPacketManager());
     pProfile   = new ashitacastProfile(core, &mConfig, pOutput);
     pVariables = new ashitacastVariables(core, &mCharacterState.mCurrentAction, pOutput);
-
-    strcpy_s(mEventBuffer.returnEvent, 256, "packer_ashitacast_response");
 
     if (m_AshitaCore->GetMemoryManager()->GetParty()->GetMemberIsActive(0))
     {
@@ -133,16 +130,52 @@ bool ashitacast::HandleOutgoingPacket(uint16_t id, uint32_t size, const uint8_t*
 
 void ashitacast::HandleEvent(const char* eventName, const void* eventData, const uint32_t eventSize)
 {
-    if (strncmp(eventName, mEventBuffer.returnEvent, strlen(mEventBuffer.returnEvent)) == 0)
+    if ((strcmp(eventName, "ashitacast4_naked") == 0) || (strcmp(eventName, "ashitacastany_naked") == 0))
     {
-        const char* eventText = (const char*)eventName + strlen(mEventBuffer.returnEvent) + 1;
-        if (strcmp(eventText, "GEAR_STARTED") != 0)
+        for (int x = 0; x < 16; x++)
         {
-            for (int x = 0; x < 16; x++)
-            {
-                pVariables->mEquipOverrides[x].disabled = false;
-            }
+            removeEquip(x);
+            pVariables->mEquipOverrides[x].disabled = true;
         }
-        m_LogManager->Logf((uint32_t)Ashita::LogLevel::Debug, "Ashitacast", "Packer Event: %s", eventText);
+    }
+    if ((strcmp(eventName, "ashitacast4_disable") == 0) || (strcmp(eventName, "ashitacastany_disable") == 0))
+    {
+        for (int x = 0; x < 16; x++)
+        {
+            pVariables->mEquipOverrides[x].disabled = true;
+        }
+    }
+    if ((strcmp(eventName, "ashitacast4_enable") == 0) || (strcmp(eventName, "ashitacastany_enable") == 0))
+    {
+        for (int x = 0; x < 16; x++)
+        {
+            pVariables->mEquipOverrides[x].disabled = false;
+        }
+    }
+    if ((strcmp(eventName, "ashitacast4_unload") == 0) || (strcmp(eventName, "ashitacastany_unload") == 0))
+    {
+        char path[MAX_PATH];
+        HMODULE hm = NULL;
+        if (GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
+                                  GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+                (LPCSTR) "loadsettings", &hm) == 0)
+        {
+            pOutput->error_f("GetModuleHandle failed during unload event.  Error Code: %d", GetLastError());
+            return;
+        }
+        if (GetModuleFileName(hm, path, sizeof(path)) == 0)
+        {
+            pOutput->error_f("GetModuleFileName failed during unload event.  Error Code: %d", GetLastError());
+            return;
+        }
+        std::string name(path);
+        size_t lastBackslash = name.rfind('\\');
+        name                 = name.substr(lastBackslash + 1);
+        name                 = name.substr(0, name.rfind('.'));
+
+        char buffer[256];
+        sprintf_s(buffer, 256, "/unload %s", name.c_str());
+        m_AshitaCore->GetPluginManager()->RaiseEvent("ashitacast4_unloading", nullptr, 0);
+        m_AshitaCore->GetChatManager()->QueueCommand(-1, buffer);
     }
 }

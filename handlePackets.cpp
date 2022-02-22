@@ -142,14 +142,6 @@ void ashitacast::handleIncomingPacket0x28(uint16_t id, uint32_t size, const uint
 
 void ashitacast::handleOutgoingPacket0x15(uint32_t sizeChunk, const uint8_t* dataChunk)
 {
-    //I decided to trigger delayed gear here because 0x15 only tick when you're actively sending packets and in a zone.
-    if ((std::chrono::steady_clock::now() > mPackerDelay) && (mPackerDelayXml))
-    {
-        mEventBuffer.document = mPackerDelayXml;
-        m_AshitaCore->GetPluginManager()->RaiseEvent("packer_gear", &mEventBuffer, sizeof(packerPluginEvent_t));
-        mPackerDelayXml = NULL;
-    }
-
     bool actionPacketFound = false;
 
     auto offset = 0;
