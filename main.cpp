@@ -111,12 +111,12 @@ bool ashitacast::HandleOutgoingPacket(uint16_t id, uint32_t size, const uint8_t*
 
     if ((id == 0x1A) && (!blocked))
     {
-        return handleOutgoingPacket0x1A(id, size, data);
+        return handleOutgoingPacket0x1A(id, size, data, injected);
     }
 
     if ((id == 0x37) && (!blocked))
     {
-        return handleOutgoingPacket0x37(id, size, data);
+        return handleOutgoingPacket0x37(id, size, data, injected);
     }
 
     if ((id == 0x100) && (!blocked))

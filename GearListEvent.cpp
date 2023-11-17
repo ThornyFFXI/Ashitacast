@@ -8,7 +8,7 @@ GearListEvent_t* ashitacast::CreateGearEvent()
     sprintf_s(gearEvent->Sender, 256, "Ashitacast4_%d", static_cast<int>(floor(this->GetVersion() * 100.0)));
     if (!pProfile->mIsLoaded)
     {
-        pOutput->error("Could not activate packer.  No XML was loaded.");
+        pOutput->error("Could not create equipment list.  No XML was loaded.");
         delete gearEvent;
         return nullptr;
     }

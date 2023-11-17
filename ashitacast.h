@@ -21,6 +21,7 @@ private:
     IAshitaCore* m_AshitaCore;
     ILogManager* m_LogManager;
     uint32_t m_PluginId;
+    char m_LastActionPacket[200];
 
 public:
     const char* GetName(void) const override
@@ -41,7 +42,7 @@ public:
     }
     double GetVersion(void) const override
     {
-        return 1.10f;
+        return 1.20f;
     }
     int32_t GetPriority(void) const override
     {
@@ -124,8 +125,8 @@ private:
     void handleIncomingPacket0x28(uint16_t id, uint32_t size, const uint8_t* data);
 
     void handleOutgoingPacket0x15(uint32_t sizeChunk, const uint8_t* dataChunk);
-    bool handleOutgoingPacket0x1A(uint16_t id, uint32_t size, const uint8_t* data);
-    bool handleOutgoingPacket0x37(uint16_t id, uint32_t size, const uint8_t* data);
+    bool handleOutgoingPacket0x1A(uint16_t id, uint32_t size, const uint8_t* data, bool injected);
+    bool handleOutgoingPacket0x37(uint16_t id, uint32_t size, const uint8_t* data, bool injected);
     void handleOutgoingPacket0x100(uint16_t id, uint32_t size, const uint8_t* data);
 
     //handleXml.cpp

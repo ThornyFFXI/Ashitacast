@@ -144,14 +144,16 @@ void ashitacast::handleOutgoingPacket0x15(uint32_t sizeChunk, const uint8_t* dat
 {
     bool actionPacketFound = false;
 
+    const std::vector<uint16_t> actionTypes = std::vector<uint16_t>{ 3, 7, 9, 0x10 };
     auto offset = 0;
     auto packet = dataChunk;
     while (offset < sizeChunk)
     {
         const auto size = (*(uint16_t*)packet >> 0x09) * 0x04;
         const auto pid  = (uint16_t)(*(uint16_t*)packet & 0x01FF);
-        if (pid == 0x1A)
+        if (((pid == 0x1A) && (std::find(actionTypes.begin(), actionTypes.end(), ((pkAction_t*)packet)->category) != actionTypes.end())) || (pid == 0x37))
             actionPacketFound = true;
+
         offset += size;
         packet += size;
     }
@@ -173,8 +175,17 @@ void ashitacast::handleOutgoingPacket0x15(uint32_t sizeChunk, const uint8_t* dat
 
     pVariables->setLastPosition(ReadFloat(dataChunk, 0x04), ReadFloat(dataChunk, 0x08));
 }
-bool ashitacast::handleOutgoingPacket0x1A(uint16_t id, uint32_t size, const uint8_t* data)
+bool ashitacast::handleOutgoingPacket0x1A(uint16_t id, uint32_t size, const uint8_t* data, bool injected)
 {
+    if (!injected)
+    {
+        if ((m_AshitaCore->GetPluginManager()->Get("Sequencer") == nullptr) && (memcmp(m_LastActionPacket, data, size) == 0))
+        {
+            return true;
+        }
+        memcpy(m_LastActionPacket, data, size);
+    }
+
     pkAction_t* packet = (pkAction_t*)data;
     if (packet->category == 3) //Spell
     {
@@ -274,8 +285,17 @@ bool ashitacast::handleOutgoingPacket0x1A(uint16_t id, uint32_t size, const uint
 
     return false;
 }
-bool ashitacast::handleOutgoingPacket0x37(uint16_t id, uint32_t size, const uint8_t* data)
+bool ashitacast::handleOutgoingPacket0x37(uint16_t id, uint32_t size, const uint8_t* data, bool injected)
 {
+    if (!injected)
+    {
+        if ((m_AshitaCore->GetPluginManager()->Get("Sequencer") == nullptr) && (memcmp(m_LastActionPacket, data, size) == 0))
+        {
+            return true;
+        }
+        memcpy(m_LastActionPacket, data, size);
+    }
+
     pkItem_t* packet            = (pkItem_t*)data;
     Ashita::FFXI::item_t* pItem = m_AshitaCore->GetMemoryManager()->GetInventory()->GetContainerItem(packet->itemContainer, packet->itemIndex);
 
