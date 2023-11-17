@@ -1,5 +1,10 @@
-## A note to potential new users
-While Ashitacast will remain functional for the foreseeable future and there is no obligation for anyone to change off of it, I would like to point out that LuAshitacast is a much more efficient and clean tool for the same purpose.  XML is not well-suited to programming tasks, and while there are improvements that could be made such as preprocessing into jump tables, Ashitacast at present does far too many string comparisons.  This is unlikely to matter on a modern processor, but extremely complex files may end up wasting some cpu time.  The lack of access to looping iteration and other basic functions a real language would have also limits your ability to customize things to extremes.  I highly recommend that anyone who is just getting started(and even those with some existing knowledge) consider looking at LuAshitacast instead.
+# WARNING - Deprecated
+This tool should not be used.  It will remain available and receive compatibility updates for current FFXI client as needed, but users who are not already invested in it should look into:
+https://github.com/ThornyFFXI/LuAshitacast - Recommended tool for this.  If you don't have any existing files, start with this.
+https://github.com/ThornyFFXI/LegacyAC - If you are coming from Ashita3, or have Ashitacast XML files you've been given, you almost certainly need LegacyAC, not this repo.
+
+## A note to people who use this anyway
+LuAshitacast is a much more efficient and clean tool for the same purpose.  XML is not well-suited to programming tasks, and while there are improvements that could be made such as preprocessing into jump tables, Ashitacast at present does far too many string comparisons.  This is unlikely to matter on a modern processor, but extremely complex files may end up wasting some cpu time.  The lack of access to looping iteration and other basic functions a real language would have also limits your ability to customize things to extremes.  I highly recommend that anyone who is just getting started(and even those with some existing knowledge) consider looking at LuAshitacast instead.
 
 # Ashitacast
 Ashitacast is a plugin designed to manage your gear swaps.  This is configured in an XML file, which should be placed in *ashita/config/ashitacast/* and named *CharacterName_JOB.xml*.  
