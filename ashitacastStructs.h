@@ -183,7 +183,7 @@ public:
         }
     }
 
-    bool operator==(const GearListEntry_t& other)
+    bool operator==(const GearListEntry_t other)
     {
         if (_stricmp(Name, other.Name) != 0)
             return false;
